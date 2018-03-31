@@ -53,6 +53,8 @@ MatAutocompleteModule,
 import { IonicApp, IonicModule, App } from 'ionic-angular';
 import {FormsModule} from '@angular/forms';
 import { ListtheatreComponent } from './components/listtheatre/listtheatre.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -61,7 +63,9 @@ const appRoutes:Routes=[
 {path:  '', redirectTo: '/dashboard', pathMatch: 'full'},
 {path:'cinemas',component:ListcinemaComponent},
 {path:'theatres',component:ListtheatreComponent},
-{path:'addCinema',component:CinemaformComponent}
+{path:'addCinema',component:CinemaformComponent},
+{path:'registration',component:RegistrationComponent},
+{path:'login',component:LoginComponent}
 
 ];
 enableProdMode();
@@ -71,7 +75,9 @@ enableProdMode();
     ListcinemaComponent,
     CinemaformComponent,
     DashboardComponent,
-    ListtheatreComponent
+    ListtheatreComponent,
+    RegistrationComponent,
+    LoginComponent
     
   ],
 
@@ -113,7 +119,9 @@ enableProdMode();
     MatToolbarModule,
     MatTooltipModule,
     MatStepperModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgModule,
+    FormsModule
   ],
   providers: [CinemaService,HttpClientModule],
   bootstrap: [AppComponent]
