@@ -1,18 +1,123 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { ListcinemaComponent } from './components/listcinema/listcinema.component';
+import { CinemaformComponent } from './components/cinemaform/cinemaform.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {CinemaService} from './shared-service/cinema.service';
+import {HttpModule} from '@Angular/http';
+import { environment } from '../environments/environment';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { ErrorHandler } from '@angular/core';
+import { IonicStorageModule } from '@ionic/storage';
+import {enableProdMode} from '@angular/core';
+import { CdkTableModule } from '@angular/cdk/table';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {
+MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatStepperModule,
+  MAT_DIALOG_DEFAULT_OPTIONS
+} from '@angular/material';
+
+import { IonicApp, IonicModule, App } from 'ionic-angular';
+import {FormsModule} from '@angular/forms';
+import { ListtheatreComponent } from './components/listtheatre/listtheatre.component';
 
 
+
+const appRoutes:Routes=[
+{path:'dashboard',component:DashboardComponent},
+{path:  '', redirectTo: '/dashboard', pathMatch: 'full'},
+{path:'cinemas',component:ListcinemaComponent},
+{path:'theatres',component:ListtheatreComponent},
+{path:'addCinema',component:CinemaformComponent}
+
+];
+enableProdMode();
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListcinemaComponent,
+    CinemaformComponent,
+    DashboardComponent,
+    ListtheatreComponent
+    
   ],
+
+ 
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    CdkTableModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes),
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatStepperModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [CinemaService,HttpClientModule],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }
