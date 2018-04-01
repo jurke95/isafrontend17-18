@@ -7,7 +7,7 @@ import { ListcinemaComponent } from './components/listcinema/listcinema.componen
 import { CinemaformComponent } from './components/cinemaform/cinemaform.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {CinemaService} from './shared-service/cinema.service';
-import {HttpModule} from '@Angular/http';
+import {HttpModule} from '@angular/http';
 import { environment } from '../environments/environment';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ErrorHandler } from '@angular/core';
@@ -15,6 +15,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import {enableProdMode} from '@angular/core';
 import { CdkTableModule } from '@angular/cdk/table';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ReactiveFormsModule } from '@angular/forms';
 import {
 MatAutocompleteModule,
   MatButtonModule,
@@ -55,6 +56,8 @@ import {FormsModule} from '@angular/forms';
 import { ListtheatreComponent } from './components/listtheatre/listtheatre.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { LoginComponent } from './components/login/login.component';
+import { UserService } from './shared-service/user.service';
+
 
 
 
@@ -85,6 +88,8 @@ enableProdMode();
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpModule,
+    ReactiveFormsModule,
     CdkTableModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
@@ -120,10 +125,9 @@ enableProdMode();
     MatTooltipModule,
     MatStepperModule,
     BrowserAnimationsModule,
-    NgModule,
     FormsModule
   ],
-  providers: [CinemaService,HttpClientModule],
+  providers: [CinemaService,UserService,HttpModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {

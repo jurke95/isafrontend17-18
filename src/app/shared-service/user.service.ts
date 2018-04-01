@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Http,Response,Headers,RequestOptions} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {User} from '../user';
+
+import { Observable } from 'rxjs';
+import { HttpModule } from '@angular/http';
 
 
 import {HttpClient,HttpHeaders}from '@angular/common/http';
@@ -16,12 +18,21 @@ const httpOptions = {
 export class UserService {
   
   private baseUrl:string='http://localhost:8084/user';
- 
-   constructor(private _http:HttpClient) { }
+  private user:User;
+   constructor(private http: Http) { }
 
 
-createUser(user:User) {
-  return this._http.post(this.baseUrl+'/registration',JSON.stringify(user));
+createUser(u:any) {
+
+  this.user=u;
+  const headers = new Headers({'Content-Type': 'application/json'});
+  const body = JSON.stringify(this.user);
+  console.log(this.user);
+  return this.http.post('http://localhost:8084/user/registration',body,{headers: headers}) //ne moze da pogodi back
+  .map((response: Response) => response.json())
+  .catch((error: Response) => {
+  return Observable.throw(error.json());
+});
 }
 
 
