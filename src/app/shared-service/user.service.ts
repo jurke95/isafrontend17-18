@@ -30,21 +30,29 @@ createUser(u:any) {
   const body = JSON.stringify(this.user);
   console.log(this.user);
   this.httpClient.post('http://localhost:8084/user/registration',
-
-{name:this.user.name,
- surname:this.user.surname,
- email:this.user.email,
- password1:this.user.password1,
- password2:this.user.password2,
- phonenumber:this.user.phonenumber,
- city:this.user.city
- 
-})
-.subscribe(
-  (data:any)=>{
-
-
+  {name:this.user.name,
+   surname:this.user.surname,
+  email:this.user.email,
+  password1:this.user.password1,
+  password2:this.user.password2,
+  phonenumber:this.user.phonenumber,
+  city:this.user.city})
+  .subscribe(
+  (data:any)=>{ }
+  )
   }
-)
-}
+
+  loginUser(u:any) {
+    this.user=u;
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const body = JSON.stringify(this.user);
+    console.log(this.user);
+    this.httpClient.post('http://localhost:8084/user/login',
+    {email:this.user.email,
+     password:this.user.password1
+    })
+    .subscribe(
+    (data:any)=>{ console.log(data) }
+    )
+  }
 }
