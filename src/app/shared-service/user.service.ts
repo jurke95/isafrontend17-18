@@ -5,6 +5,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {User} from '../user';
 
+
 import { Observable } from 'rxjs';
 import { HttpModule } from '@angular/http';
 
@@ -19,7 +20,7 @@ export class UserService {
   
   private baseUrl:string='http://localhost:8084/user';
   private user:User;
-   constructor(private http: Http) { }
+   constructor(private httpClient:HttpClient) {}
 
 
 createUser(u:any) {
@@ -28,13 +29,22 @@ createUser(u:any) {
   const headers = new Headers({'Content-Type': 'application/json'});
   const body = JSON.stringify(this.user);
   console.log(this.user);
-  return this.http.post('http://localhost:8084/user/registration',body,{headers: headers}) //ne moze da pogodi back
-  .map((response: Response) => response.json())
-  .catch((error: Response) => {
-  return Observable.throw(error.json());
-});
+  this.httpClient.post('http://localhost:8084/user/registration',
+
+{name:this.user.name,
+ surname:this.user.surname,
+ email:this.user.email,
+ password1:this.user.password1,
+ password2:this.user.password2,
+ phonenumber:this.user.phonenumber,
+ city:this.user.city
+ 
+})
+.subscribe(
+  (data:any)=>{
+
+
+  }
+)
 }
-
-
-
 }
