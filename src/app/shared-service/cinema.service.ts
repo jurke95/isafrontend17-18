@@ -22,16 +22,16 @@ export class CinemaService {
 
   constructor(private _http:HttpClient) { }
 
- getCinemas(){
+ getCinemas(): Observable<any>{
 
-  return this._http.get<Cinema[]>('http://localhost:8084/cinemas/getCinemas');
+  return this._http.get('http://localhost:8084/cinemas/getCinemas');
   
  }
 
 
- getTheatres(){
+ getTheatres(): Observable<any>{
 
-  return this._http.get<Theatre[]>('http://localhost:8084/theatres/getTheatres');
+  return this._http.get('http://localhost:8084/theatres/getTheatres');
   
  }
 

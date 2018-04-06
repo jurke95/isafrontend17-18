@@ -1,17 +1,8 @@
 
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {CinemaService} from'../../shared-service/cinema.service';
 
-import { MatTableDataSource, MatPaginator } from '@angular/material';
-import {DataSource} from '@angular/cdk/table';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
-import {Cinema} from '../../cinema';
-import {Theatre} from '../../theatre';
 import { RouterModule, Routes,Router } from '@angular/router';
-import { ActivatedRoute, UrlSegment } from '@angular/router';
 
 
 @Component({
@@ -22,22 +13,13 @@ import { ActivatedRoute, UrlSegment } from '@angular/router';
 export class ListtheatreComponent implements OnInit {
 
 
-  private t:Theatre[];
-  th:any;
-  data:any;
+  private theatres =[];
 
-
-
-
-
-  constructor(private _theatreService:CinemaService,route: ActivatedRoute) { }
+  constructor(private _theatreService:CinemaService) { }
 
   ngOnInit() {
 
-    this._theatreService.getTheatres().subscribe((data)=>{
-      
-      this.t=data.th;
-  })
+    this._theatreService.getTheatres().subscribe( data => this.theatres = data.th)
 
 }
 }

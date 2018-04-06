@@ -57,6 +57,7 @@ import { ListtheatreComponent } from './components/listtheatre/listtheatre.compo
 import { RegistrationComponent } from './components/registration/registration.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserService } from './shared-service/user.service';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
@@ -80,7 +81,8 @@ enableProdMode();
     DashboardComponent,
     ListtheatreComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent
     
   ],
 

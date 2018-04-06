@@ -1,26 +1,14 @@
 <div>
- <h1>Welcome to Ticket reservations for Cinema/Theatre!</h1>
+ <h1 style="text-align: center;">Welcome to Ticket reservations for Cinema&Theatre!</h1>
 </div>
-<ul>
 
-<li>
-
-
-  <h2><a [routerLink]="['/cinemas']" [routerLinkActive]="['is-active']">Cinemas</a> </h2>
-</li>
-
-
-
-
-<li>
-
-
-  <h2><a [routerLink]="['/theatres']" [routerLinkActive]="['is-active']">Theatres</a> </h2>
-</li>
-
-
-
-
-
-
-</ul>
+<div class="container" style="text-align: center;">
+    <div class="col-md-4 d-inline-block">
+      <img src="../../../assets/images/cinema.png" [routerLink]="['/cinemas']" [routerLinkActive]="['is-active']" class="img-circle" alt="Cinque Terre" width="304" height="236">
+      <h2 style="text-align: center;">Cinemas</h2>
+    </div>
+    <div class="col-md-4 d-inline-block">
+      <img src="../../../assets/images/theatre.png" [routerLink]="['/theatres']" class="img-circle" alt="Cinque Terre" width="304" height="236">
+      <h2 style="text-align: center;">Theatres</h2>
+    </div>
+</div>

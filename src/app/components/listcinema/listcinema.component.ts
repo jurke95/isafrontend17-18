@@ -23,12 +23,7 @@ export class ListcinemaComponent implements OnInit {
 
 
 
-  private c:Cinema[];
-  
-  cin:any;
-  
-  data:any;
-   
+  private cinemas = [];
   
   constructor(private _cinemaService:CinemaService,route: ActivatedRoute) {  }
 
@@ -36,25 +31,7 @@ export class ListcinemaComponent implements OnInit {
    
   
   ngOnInit() {
-    this._cinemaService.getCinemas().subscribe((data)=>{
-      
-      this.c=data.cin;
-      
-  
-
-     
-  })
-
-  
-    
-    
-   
-
-
-  
-
-
-
+    this._cinemaService.getCinemas().subscribe((data)=>this.cinemas=data.cin) 
 
   
 }

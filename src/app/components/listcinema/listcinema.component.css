@@ -1,14 +1,17 @@
-.example-fill-remaining-space {
-    flex: 1 1 auto;
-  }
+.stars {
+  margin:20px auto 1px;    
+}
 
-  p{
-    text-indent: 60px;
-    font-size: 0.8cm;
-    color: royalblue;
-    font-style: oblique;
-  }
+.cinemaCard{
+   border:solid 1px grey;
+   margin-top:8px;
+   margin-bottom:8px;
+}
 
-  a{
-    color: royalblue;
-  }
+.cardInline{
+  display:inline-block;
+}
+
+.cardBtn{
+  margin-top:5px;
+}
