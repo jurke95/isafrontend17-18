@@ -6,7 +6,7 @@ import 'rxjs/add/observable/throw';
 import {User} from '../user';
 
 
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { HttpModule } from '@angular/http';
 
 
@@ -21,7 +21,7 @@ export class UserService {
   private baseUrl:string='http://localhost:8084/user';
   private user:User;
    constructor(private httpClient:HttpClient) {}
-
+   
 
 createUser(u:any) {
 
@@ -54,5 +54,11 @@ createUser(u:any) {
     .subscribe(
     (data:any)=>{ console.log(data) }
     )
+  }
+
+  getUser(): Observable<any>{
+
+    return this.httpClient.get('http://localhost:8084/user/getUser/1');
+    
   }
 }
