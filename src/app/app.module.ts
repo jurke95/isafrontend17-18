@@ -61,6 +61,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { userAccount } from './components/userAccount/userAccount.component';
 import { AddcinemaComponent } from './components/addcinema/addcinema.component';
 import { AddtheatreComponent } from './components/addtheatre/addtheatre.component';
+import { ProductComponent } from './components/fanzone/product/product.component';
 
 
 
@@ -75,7 +76,8 @@ const appRoutes:Routes=[
 {path:'login',component:LoginComponent},
 {path:'userAccount',component:userAccount},
 {path:'cinemas/registration',component:AddcinemaComponent},
-{path:'theatres/registration',component:AddtheatreComponent}
+{path:'theatres/registration',component:AddtheatreComponent},
+{path:'fanzone/products',component:ProductComponent}
 
 
 ];
@@ -92,7 +94,8 @@ enableProdMode();
     NavbarComponent,
     userAccount,
     AddcinemaComponent,
-    AddtheatreComponent
+    AddtheatreComponent,
+    ProductComponent
     
   ],
 
