@@ -1,5 +1,5 @@
 export class Theatre {
-  id: Number;
+  id: number;
   name: string;
   location: string;
   promOpis: string;

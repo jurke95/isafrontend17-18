@@ -59,6 +59,8 @@ import { LoginComponent } from './components/login/login.component';
 import { UserService } from './shared-service/user.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { userAccount } from './components/userAccount/userAccount.component';
+import { AddcinemaComponent } from './components/addcinema/addcinema.component';
+import { AddtheatreComponent } from './components/addtheatre/addtheatre.component';
 
 
 
@@ -71,7 +73,10 @@ const appRoutes:Routes=[
 {path:'addCinema',component:CinemaformComponent},
 {path:'registration',component:RegistrationComponent},
 {path:'login',component:LoginComponent},
-{path:'userAccount',component:userAccount}
+{path:'userAccount',component:userAccount},
+{path:'cinemas/registration',component:AddcinemaComponent},
+{path:'theatres/registration',component:AddtheatreComponent}
+
 
 ];
 enableProdMode();
@@ -85,7 +90,9 @@ enableProdMode();
     RegistrationComponent,
     LoginComponent,
     NavbarComponent,
-    userAccount
+    userAccount,
+    AddcinemaComponent,
+    AddtheatreComponent
     
   ],
 

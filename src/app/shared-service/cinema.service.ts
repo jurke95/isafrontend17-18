@@ -18,6 +18,9 @@ const httpOptions = {
 export class CinemaService {
 
  private baseUrl:string='http://localhost:8084/cinemas';
+ private cinema:Cinema;
+ private theatre:Theatre;
+
  
 
   constructor(private _http:HttpClient) { }
@@ -34,6 +37,48 @@ export class CinemaService {
   return this._http.get('http://localhost:8084/theatres/getTheatres');
   
  }
+
+addCinema(c:any){
+this.cinema=c;
+console.log(this.cinema);
+this._http.post('http://localhost:8084/cinemas/registration',
+  {id:this.cinema.id,
+  name:this.cinema.name,
+   location:this.cinema.location,
+  promOpis:this.cinema.promOpis,
+  
+ })
+  .subscribe(
+  (data:any)=>{ }
+  )
+
+
+}
+
+
+
+
+addTheatre(t:any){
+  this.theatre=t;
+ 
+  this._http.post('http://localhost:8084/theatres/registration',
+    {id:this.theatre.id,
+    name:this.theatre.name,
+     location:this.theatre.location,
+    promOpis:this.theatre.promOpis,
+    
+   })
+    .subscribe(
+    (data:any)=>{ }
+    )
+  
+  
+  }
+
+
+
+
+
 
 
 

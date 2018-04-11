@@ -1,0 +1,48 @@
+<div class="container padding-top-10"> <!--da se smanji cela forma dodati ovde col-md-6" -->
+	<form [formGroup]="form" (ngSubmit)="addTheatreForm()">
+		<div class="panel panel-default">
+			<div class="panel-heading" align="center">THEATRE REGISTRATION</div>
+				<div class="panel-body">
+            <div class="row padding-top-10">
+                <div class="col-md-2">
+                  <label for="Id" class="control-label">Id:</label>
+                </div>
+                <div class="col-md-5 form-group input-group">
+                  <input type="number" class="form-control" id="id" placeholder="Id"  formControlName="id"/>
+                </div>
+              </div>
+					<div class="row padding-top-10">
+						<div class="col-md-2">
+							<label for="Name" class="control-label">Name:</label>
+						</div>
+						<div class="col-md-5 form-group input-group">
+							<input type="text" class="form-control" id="name" placeholder="Name"  formControlName="name"/>
+            </div>
+          </div>
+            <div class="row padding-top-10 ">
+            <div class="col-md-2">
+							<label for="Location" class="control-label">Location:</label>
+						</div>
+						<div class="col-md-5 form-group input-group">
+              <input type="text" class="form-control" id="location" placeholder="Location"  formControlName="location"/>
+						</div>
+          </div>
+          </div>
+					<div class="row padding-top-10 ">
+						<div class="col-md-2">
+							<label for="Promotivni opis" class="control-label">Opis:</label>
+						</div>
+						<div class="col-md-10 form-group input-group">
+							<input type="text" class="form-control" id="promOpis" placeholder="promOpis"  formControlName="promOpis"/>
+						</div>
+          </div>
+          
+				
+								
+			
+			<div class="panel-footer padding-top-12 padding-top-10" align="center">
+				<button type="submit" class="btn btn-success">Register Theatre</button>
+			</div>
+		</div>
+	</form>
+ </div>

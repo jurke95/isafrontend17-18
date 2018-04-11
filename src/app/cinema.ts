@@ -1,5 +1,5 @@
 export class Cinema {
-  id: Number;
+  id: any;
   name: string;
   location: string;
   promOpis: string;
