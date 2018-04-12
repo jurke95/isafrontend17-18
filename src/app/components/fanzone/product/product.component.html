@@ -8,7 +8,7 @@
                     <p class="list-group-item-text">{{product.description}} </p>
                 </div>
                 <div class="col-md-3 text-center cardInline">
-                    <button type="button" class="btn btn-primary btn-lg btn-block cardBtn">Buy</button>
+                    <button type="button" (click)="reserveSelectedProduct(product.id)" class="btn btn-primary btn-lg btn-block cardBtn">Buy</button>
                     <p> {{product.price}} <small>  </small> din </p>
                     <p> {{product.boxoffice}}</p>
                     <button type="button" (click)="deleteSelectedProduct(product.id)" class="btn btn-primary btn-lg btn-block cardBtn">Delete</button>

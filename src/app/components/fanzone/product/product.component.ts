@@ -29,7 +29,18 @@ import { RouterModule, Routes,Router } from '@angular/router';
       )
     }
 
+    reserveSelectedProduct(idprod:any,iduser:any){
+     this._productService.reserveProduct(idprod,4).subscribe(
+           
+      data=>{
+        
+      }
 
 
+
+     )
 
   }
+
+
+}

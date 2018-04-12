@@ -29,7 +29,7 @@ export class ProductService {
     this.product=p;
   
     this._http.post('http://localhost:8084/fanzone/addProducts',
-      {id:this.product.id,
+      {
       name:this.product.name,
       description:this.product.description,
       image:this.product.image,
@@ -51,11 +51,13 @@ export class ProductService {
       console.log("ovo je id u servisu"+id);
      return this._http.delete('http://localhost:8084/fanzone/deleteProducts/'+id);
 
-
-    
-
-
     }
+
+    reserveProduct(idprod:any,userid:any){
+      
+      return this._http.post('http://localhost:8084/fanzone/reservationProduct?userId='+userid+'&productId='+idprod);
+    }
+
 
 
 }
