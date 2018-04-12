@@ -11,8 +11,9 @@
                     <button type="button" class="btn btn-primary btn-lg btn-block cardBtn">Buy</button>
                     <p> {{product.price}} <small>  </small> din </p>
                     <p> {{product.boxoffice}}</p>
+                    <button type="button" (click)="deleteSelectedProduct(product.id)" class="btn btn-primary btn-lg btn-block cardBtn">Delete</button>
                 </div>
     </div>
-   <!-- <button type="button" [routerLink]="['/cinemas/registration']" [routerLinkActive]="['is-active']" class="btn btn-primary btn-lg btn-block cardBtn">addCinema</button>-->
+   <button type="button" [routerLink]="['/fanzone/products/add']" [routerLinkActive]="['is-active']" class="btn btn-primary btn-lg btn-block cardBtn">addProduct</button>
 
 </div>

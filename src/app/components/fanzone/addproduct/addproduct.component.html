@@ -1,0 +1,65 @@
+<div class="container padding-top-10"> <!--da se smanji cela forma dodati ovde col-md-6" -->
+	<form [formGroup]="form" (ngSubmit)="addProductForm()">
+		<div class="panel panel-default">
+			<div class="panel-heading" align="center">ADD PRODUCT</div>
+				<div class="panel-body">
+            <div class="row padding-top-10">
+                <div class="col-md-2">
+                  <label for="Id" class="control-label">Id:</label>
+                </div>
+                <div class="col-md-5 form-group input-group">
+                  <input type="number" class="form-control" id="id" placeholder="Id"  formControlName="id"/>
+                </div>
+              </div>
+					<div class="row padding-top-10">
+						<div class="col-md-2">
+							<label for="Name" class="control-label">Name:</label>
+						</div>
+						<div class="col-md-5 form-group input-group">
+							<input type="text" class="form-control" id="name" placeholder="Name"  formControlName="name"/>
+            </div>
+          </div>
+            <div class="row padding-top-10 ">
+            <div class="col-md-2">
+							<label for="Description" class="control-label">Description:</label>
+						</div>
+						<div class="col-md-5 form-group input-group">
+              <input type="text" class="form-control" id="description" placeholder="Description"  formControlName="description"/>
+						</div>
+          </div>
+          </div>
+					<div class="row padding-top-10 ">
+						<div class="col-md-2">
+							<label for="Image" class="control-label">Image:</label>
+						</div>
+						<div class="col-md-10 form-group input-group">
+							<input type="text" class="form-control" id="image" placeholder="Image"  formControlName="image"/>
+						</div>
+          </div>
+          
+          <div class="row padding-top-10 ">
+						<div class="col-md-2">
+							<label for="Price" class="control-label">Price:</label>
+						</div>
+						<div class="col-md-10 form-group input-group">
+							<input type="number" class="form-control" id="price" placeholder="Price"  formControlName="price"/>
+						</div>
+          </div>
+
+          <div class="row padding-top-10 ">
+						<div class="col-md-2">
+							<label for="Boxoffice" class="control-label">Boxoffice:</label>
+						</div>
+						<div class="col-md-10 form-group input-group">
+							<input type="text" class="form-control" id="boxoffice" placeholder="Boxoffice"  formControlName="boxoffice"/>
+						</div>
+          </div>
+				
+								
+			
+			<div class="panel-footer padding-top-12 padding-top-10" align="center">
+				<button type="submit" class="btn btn-success">Create new product</button>
+			</div>
+		</div>
+	</form>
+ </div>
