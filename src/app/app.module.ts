@@ -62,6 +62,7 @@ import { userAccount } from './components/userAccount/userAccount.component';
 import { AddcinemaComponent } from './components/addcinema/addcinema.component';
 import { AddtheatreComponent } from './components/addtheatre/addtheatre.component';
 import { ProductComponent } from './components/fanzone/product/product.component';
+import { ProductService } from './shared-service/product.service';
 
 
 
@@ -142,7 +143,7 @@ enableProdMode();
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [CinemaService,UserService,HttpModule],
+  providers: [CinemaService,UserService,ProductService,HttpModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {

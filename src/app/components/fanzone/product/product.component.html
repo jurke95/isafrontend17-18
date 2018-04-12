@@ -1,16 +1,16 @@
 <div class="container">
-    <div  class="row productCard" > <!-- *ngFor="let product of products"-->
+    <div *ngFor="let product of products" class="row productCard" > <!-- *ngFor="let product of products"-->
                 <div class="col-md-3 cardInline">
-                        <img  width="220px" hight="170:" src="https://www.wshein.com/blog/wp-content/uploads/wshein/best-new-product.png" alt="cinema {{cinema.name}}">     
+                        <img  width="220px" hight="170:" src="https://www.wshein.com/blog/wp-content/uploads/wshein/best-new-product.png" alt="">     
                 </div>
                 <div class="col-md-6 cardInline">
-                    <h4 class="list-group-item-heading"> {{<!--Ime rekvizita-->}} </h4>
-                    <p class="list-group-item-text">{{<!--Opis rekvizita-->}} </p>
+                    <h4 class="list-group-item-heading"> {{product.name}} </h4>
+                    <p class="list-group-item-text">{{product.description}} </p>
                 </div>
                 <div class="col-md-3 text-center cardInline">
                     <button type="button" class="btn btn-primary btn-lg btn-block cardBtn">Buy</button>
-                    <p> {{<!--cena rekvizita-->}} <small>  </small> din </p>
-                    <p> {{<!--Blagajna rekvizita-->}}</p>
+                    <p> {{product.price}} <small>  </small> din </p>
+                    <p> {{product.boxoffice}}</p>
                 </div>
     </div>
    <!-- <button type="button" [routerLink]="['/cinemas/registration']" [routerLinkActive]="['is-active']" class="btn btn-primary btn-lg btn-block cardBtn">addCinema</button>-->
