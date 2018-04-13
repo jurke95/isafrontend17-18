@@ -63,13 +63,11 @@ import { AddcinemaComponent } from './components/addcinema/addcinema.component';
 import { AddtheatreComponent } from './components/addtheatre/addtheatre.component';
 import { ProductComponent } from './components/fanzone/product/product.component';
 import { ProductService } from './shared-service/product.service';
-import { AdService } from './shared-service/ad.service';
 import { AddproductComponent } from './components/fanzone/addproduct/addproduct.component';
 import {FanzoneComponent} from './components/fanzone/fanzone.component';
 import {AdComponent} from './components/fanzone/ad/ad.component';
 import {ReservationComponent} from './components/reservation/reservation.component';
 import { EditproductComponent } from './components/fanzone/editproduct/editproduct.component';
-import { AddadComponent } from './components/addad/addad.component';
 
 
 
@@ -90,7 +88,6 @@ const appRoutes:Routes=[
 {path:'fanzone/products/edit/:id',component:EditproductComponent},
 {path:'fanzone',component:FanzoneComponent},
 {path:'fanzone/ads',component:AdComponent},
-{path:'fanzone/ads/add',component:AddadComponent},
 {path:'reservation',component:ReservationComponent}
 
 
@@ -115,8 +112,7 @@ enableProdMode();
     FanzoneComponent,
     AdComponent,
     ReservationComponent,
-    EditproductComponent,
-    AddadComponent
+    EditproductComponent
 
     
   ],
@@ -164,7 +160,7 @@ enableProdMode();
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [CinemaService,UserService,ProductService,AdService,HttpModule],
+  providers: [CinemaService,UserService,ProductService,HttpModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {
