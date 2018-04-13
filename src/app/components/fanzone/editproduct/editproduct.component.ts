@@ -14,9 +14,10 @@ import 'rxjs/add/operator/switchMap';
 export class EditproductComponent implements OnInit {
 
   public form: FormGroup;
- product:Product;
+  public product:Product;
+  private tempProduct:Product;
  id_product:any;
-product2:Product;
+
   constructor(private productService:ProductService,private route: ActivatedRoute,
   )
     
@@ -25,7 +26,8 @@ product2:Product;
      { }
 
   ngOnInit() {
-  this.getProductData();
+
+
     this.form = new FormGroup({
       name: new FormControl("",[Validators.required]),
       description: new FormControl("", [Validators.required]),
@@ -34,32 +36,44 @@ product2:Product;
       boxoffice: new FormControl("",[Validators.required])
   })
 
+
+
+    var x=this.route.params._value.id;
+ 
+
+    this.productService.getProduct(x)
+    .subscribe(
+      data=>{
+        this.product=data;
+        this.form.setValue({
+          name:    this.product.name,
+          description: this.product.description,
+          image:    this.product.image,
+          price: this.product.price,
+          boxoffice:    this.product.boxoffice
+          
+       });
+        
+      }
+    );
+  
+
+  
+  
+    
+
  
 
     
 
 }
 
-getProductData(){
-
-  var x=this.route.params._value.id;
  
-
-  this.productService.getProduct(x)
-  .subscribe(
-    data=>{
-      this.product=data;
-      
-    }
-  );
-
-
- }
 
 editProductForm(){
   var par=this.route.params._value.id;
   let productfields = this.form.value;
-   
+   console.log(productfields);
   this.productService.updateProduct(productfields,par);
 
 }
