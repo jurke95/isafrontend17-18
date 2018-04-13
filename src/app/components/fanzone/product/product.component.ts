@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductService} from'../../../shared-service/product.service';
-
+import {UserService} from'../../../shared-service/user.service';
+import {User} from '../../../user';
 import { RouterModule, Routes,Router } from '@angular/router';
 
 @Component({
@@ -11,15 +12,22 @@ import { RouterModule, Routes,Router } from '@angular/router';
   export class ProductComponent implements OnInit {
   
    private products=[];
-
-    constructor(private _productService:ProductService,private _router:Router) { }
+   private activeUser:User;
+   
+    constructor(private _productService:ProductService,private _router:Router,private _userService:UserService) { }
   
     ngOnInit() {
       this._productService.getProducts().subscribe( data => this.products = data.products);
+      this._userService.getActiveUser().subscribe((data)=>{this.activeUser=data;
+       
+      
+      
+      }
+    );
     }
   
     deleteSelectedProduct(id:any){
-     console.log("USAO");
+     
      console.log(id);
       this._productService.deleteProduct(id).subscribe(
 
@@ -30,7 +38,8 @@ import { RouterModule, Routes,Router } from '@angular/router';
     }
 
     reserveSelectedProduct(idprod:any,iduser:any){
-     this._productService.reserveProduct(idprod,4).subscribe(
+      
+     this._productService.reserveProduct(idprod,this.activeUser.id).subscribe(
            
       data=>{
         
