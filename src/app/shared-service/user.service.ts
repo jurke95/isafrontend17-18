@@ -61,4 +61,10 @@ createUser(u:any) {
     return this.httpClient.get('http://localhost:8084/user/getUser/1');
     
   }
+
+  getActiveUser(): Observable<any>{
+
+    return this.httpClient.get('http://localhost:8084/user/getActiveUser');
+    
+  }
 }

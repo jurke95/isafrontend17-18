@@ -17,10 +17,12 @@ import {UserService} from'../../shared-service/user.service';
 })
 export class userAccount {
     private user:User;
+    private activeUser:User;
 
     constructor(private _userService:UserService,route: ActivatedRoute) {  }
     
     ngOnInit() {
         this._userService.getUser().subscribe((data)=>this.user=data)  
+        this._userService.getActiveUser().subscribe((data)=>this.activeUser=data)
     }
 }
