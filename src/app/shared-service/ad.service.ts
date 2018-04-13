@@ -52,9 +52,13 @@ export class AdService {
     }
 
    makeOffer(idad:any,money:any,userid:any){
-  console.log("dosaooo");
-  console.log(idad+money+userid);
-     this._http.post('http://localhost:8084/fanzone/makeOffer/'+idad+'?userId='+userid+'&offer=1234');
+  
+     this._http.post('http://localhost:8084/fanzone/makeOffer/'+idad+'/?userId='+userid+'&offer='+money)
+     .subscribe(
+      (data:any)=>{ }
+    
+
+     )
    }
 
 

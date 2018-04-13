@@ -21,7 +21,7 @@ export class AddadComponent implements OnInit {
       name: new FormControl('',[Validators.required]),
       description: new FormControl('',[Validators.required]),
       date: new FormControl('', [Validators.required]),
-      image: new FormControl('',[Validators.required]),
+      image: new FormControl('',[Validators.required])
   })
   }
 
