@@ -67,6 +67,8 @@ import { AddproductComponent } from './components/fanzone/addproduct/addproduct.
 import {FanzoneComponent} from './components/fanzone/fanzone.component';
 import {AdComponent} from './components/fanzone/ad/ad.component';
 import {ReservationComponent} from './components/reservation/reservation.component';
+import { EditproductComponent } from './components/fanzone/editproduct/editproduct.component';
+
 
 
 
@@ -83,6 +85,7 @@ const appRoutes:Routes=[
 {path:'theatres/registration',component:AddtheatreComponent},
 {path:'fanzone/products',component:ProductComponent},
 {path:'fanzone/products/add',component:AddproductComponent},
+{path:'fanzone/products/edit/:id',component:EditproductComponent},
 {path:'fanzone',component:FanzoneComponent},
 {path:'fanzone/ads',component:AdComponent},
 {path:'reservation',component:ReservationComponent}
@@ -108,7 +111,9 @@ enableProdMode();
     AddproductComponent,
     FanzoneComponent,
     AdComponent,
-    ReservationComponent
+    ReservationComponent,
+    EditproductComponent
+
     
   ],
 

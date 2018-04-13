@@ -24,6 +24,14 @@ export class ProductService {
     
    }
 
+   getProduct(id:any): Observable<any>{
+
+   
+    return this._http.get('http://localhost:8084/fanzone/getProducts/'+id);
+    
+   }
+
+
 
    addProduct(p:any){
     this.product=p;
@@ -44,11 +52,29 @@ export class ProductService {
     
     }
 
+    updateProduct(p:any,productid:any){
+      this.product=p;
+    
+      this._http.post('http://localhost:8084/fanzone/editProduct/'+productid,
+        {
+        name:this.product.name,
+        description:this.product.description,
+        image:this.product.image,
+        price:this.product.price,
+        boxoffice:this.product.boxoffice
+        
+       })
+        .subscribe(
+        (data:any)=>{ }
+        )
+      
+      
+      }
 
 
     deleteProduct(id:any){
 
-      console.log("ovo je id u servisu"+id);
+      
      return this._http.delete('http://localhost:8084/fanzone/deleteProducts/'+id);
 
     }
