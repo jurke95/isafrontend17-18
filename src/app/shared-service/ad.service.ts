@@ -8,6 +8,7 @@ import 'rxjs/add/observable/throw';
 import {Ad} from '../ad';
 
 import {HttpClient,HttpHeaders}from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -18,10 +19,13 @@ export class AdService {
   
   private ad:Ad;
 
-  constructor(private _http:HttpClient) { }
+  constructor(private _http:HttpClient,private datePipe: DatePipe) { }
 
 
-
+  transformDate(date) {
+    this.datePipe.transform(date, 'YYYY-MM-DD'); //whatever format you need. 
+    console.log(date);
+  }
 
 
 

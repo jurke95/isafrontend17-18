@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { DatePipe } from '@angular/common';
 import { AppComponent } from './app.component';
 import { ListcinemaComponent } from './components/listcinema/listcinema.component';
 import { CinemaformComponent } from './components/cinemaform/cinemaform.component';
@@ -164,7 +164,7 @@ enableProdMode();
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [CinemaService,UserService,ProductService,AdService,HttpModule],
+  providers: [CinemaService,UserService,ProductService,AdService,HttpModule,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {
