@@ -3,12 +3,14 @@
     <div class="container">
       <a class="navbar-brand" href="">
           <img src="{{urlImg}}" width="75" height="30"  >
+         
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+       <ng-container *ngIf="this.activeUser!==null; else templatelogin">
           <li class="nav-item ">
             <a class="nav-link" [routerLink]="['/userAccount']" [routerLinkActive]="['is-active']">Home
               <span class="sr-only">(current)</span>
@@ -29,9 +31,18 @@
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/fanzone']" [routerLinkActive]="['is-active']">Fan Zone</a>
           </li>
+
+          <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/dashboard']" onclick="deleteActiveUser()"  >Logout</a>
+            </li>
+
+       </ng-container>
+        <ng-template #templatelogin >
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/login']" [routerLinkActive]="['is-active']">Login</a>
           </li>
+          
+        </ng-template>
         </ul>
       </div>
     </div>

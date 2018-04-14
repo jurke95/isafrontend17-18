@@ -12,7 +12,7 @@
                     <p> {{product.price}} <small>  </small> din </p>
                     <p> {{product.boxoffice}}</p>
                     <button type="button"  [routerLink]="['/fanzone','products','edit',product.id]" [routerLinkActive]="['is-active']" class="btn btn-primary btn-lg btn-block cardBtn">Edit</button>
-                    <button type="button" (click)="deleteSelectedProduct(product.id)" class="btn btn-primary btn-lg btn-block cardBtn">Delete</button>
+                    <button *ngIf="this.activeUser.role==admin" type="button"  (click)="deleteSelectedProduct(product.id)" class="btn btn-primary btn-lg btn-block cardBtn">Delete</button>
                 </div>
     </div>
    <button type="button" [routerLink]="['/fanzone/products/add']" [routerLinkActive]="['is-active']" class="btn btn-primary btn-lg btn-block cardBtn">addProduct</button>
