@@ -111,7 +111,7 @@ enableProdMode();
     RegistrationComponent,
     LoginComponent,
     NavbarComponent,
-    userAccount,
+    UserAccount,
     AddcinemaComponent,
     AddtheatreComponent,
     ProductComponent,
