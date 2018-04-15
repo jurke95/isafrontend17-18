@@ -38,7 +38,7 @@ createUser(u:any) {
   phonenumber:this.user.phonenumber,
   city:this.user.city})
   .subscribe(
-  (data:any)=>{ }
+  (data:any)=>{ alert(data.message);}
   )
   }
 
@@ -52,7 +52,7 @@ createUser(u:any) {
      password:this.user.password1
     })
     .subscribe(
-    (data:any)=>{ console.log(data) }
+    (data:any)=>{  }
     )
   }
 
@@ -74,7 +74,7 @@ createUser(u:any) {
   return this.httpClient.get('http://localhost:8084/user/deleteActiveUser').subscribe( data=>{
 
       
-  alert(data.message);
+  
 
   })
 

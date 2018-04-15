@@ -4,7 +4,7 @@ import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from
 import {Product} from '../../../product';
 import { ProductService } from '../../../shared-service/product.service';
 import 'rxjs/add/operator/switchMap';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-editproduct',
@@ -18,7 +18,7 @@ export class EditproductComponent implements OnInit {
   private tempProduct:Product;
  id_product:any;
 
-  constructor(private productService:ProductService,private route: ActivatedRoute,
+  constructor(private productService:ProductService,private route: ActivatedRoute,private _router: Router
   )
     
     
@@ -75,6 +75,8 @@ editProductForm(){
   let productfields = this.form.value;
    console.log(productfields);
   this.productService.updateProduct(productfields,par);
+  this._router.navigateByUrl("/fanzone/products");
+    window.location.reload(true);
 
 }
 

@@ -4,6 +4,7 @@ import {Ad} from '../../ad';
 import { AdService } from '../../shared-service/ad.service';
 import {UserService} from'../../shared-service/user.service';
 import {User} from '../../user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addad',
@@ -15,7 +16,7 @@ export class AddadComponent implements OnInit {
   public form: FormGroup;
   private activeUser:User;
 
-  constructor(private _adService:AdService,private _userService:UserService) { }
+  constructor(private _adService:AdService,private _userService:UserService,private _router: Router) { }
 
   ngOnInit() {
 
@@ -39,6 +40,10 @@ export class AddadComponent implements OnInit {
     let adfields = this.form.value;
    
     this._adService.addAd(adfields,this.activeUser.id);
+    this._router.navigateByUrl("/fanzone/ads");
+    window.location.reload(true);
+    
+    
   }
 
 

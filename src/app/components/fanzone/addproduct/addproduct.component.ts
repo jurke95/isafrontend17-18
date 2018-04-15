@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import {Product} from '../../../product';
 import { ProductService } from '../../../shared-service/product.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -13,7 +15,7 @@ export class AddproductComponent implements OnInit {
 
   public form: FormGroup;
 
-  constructor(private _productService:ProductService) { }
+  constructor(private _productService:ProductService,private _router: Router) { }
 
   ngOnInit() {
 
@@ -30,6 +32,8 @@ export class AddproductComponent implements OnInit {
     let productfields = this.form.value;
    
     this._productService.addProduct(productfields);
+    this._router.navigateByUrl("/fanzone/products");
+    window.location.reload(true);
   }
 
 

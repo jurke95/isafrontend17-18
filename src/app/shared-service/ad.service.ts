@@ -49,7 +49,7 @@ export class AdService {
       
      })
       .subscribe(
-      (data:any)=>{ }
+      (data:any)=>{alert(data.message); }
       )
     
     
@@ -59,7 +59,7 @@ export class AdService {
   
      this._http.post('http://localhost:8084/fanzone/makeOffer/'+idad+'/?userId='+userid+'&offer='+money)
      .subscribe(
-      (data:any)=>{ }
+      (data:any)=>{ alert(data.message);}
     
 
      )
