@@ -112,6 +112,7 @@ enableProdMode();
     LoginComponent,
     NavbarComponent,
     UserAccount,
+    EditUser,
     AddcinemaComponent,
     AddtheatreComponent,
     ProductComponent,
