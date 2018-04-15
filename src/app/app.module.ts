@@ -58,7 +58,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { LoginComponent } from './components/login/login.component';
 import { UserService } from './shared-service/user.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { userAccount } from './components/userAccount/userAccount.component';
+import { UserAccount } from './components/userAccount/userAccount.component';
 import { AddcinemaComponent } from './components/addcinema/addcinema.component';
 import { AddtheatreComponent } from './components/addtheatre/addtheatre.component';
 import { ProductComponent } from './components/fanzone/product/product.component';
@@ -71,6 +71,7 @@ import {ReservationComponent} from './components/reservation/reservation.compone
 import { EditproductComponent } from './components/fanzone/editproduct/editproduct.component';
 import { AddadComponent } from './components/addad/addad.component';
 import {OffersComponent} from './components/fanzone/ad/offers/offers.component';
+import { EditUser } from './components/userAccount/editUser/editUser.component';
 
 
 
@@ -83,7 +84,8 @@ const appRoutes:Routes=[
 {path:'addCinema',component:CinemaformComponent},
 {path:'registration',component:RegistrationComponent},
 {path:'login',component:LoginComponent},
-{path:'userAccount',component:userAccount},
+{path:'userAccount',component:UserAccount},
+{path:'userAccount/editUser',component:EditUser},
 {path:'cinemas/registration',component:AddcinemaComponent},
 {path:'theatres/registration',component:AddtheatreComponent},
 {path:'fanzone/products',component:ProductComponent},

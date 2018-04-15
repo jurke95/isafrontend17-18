@@ -15,7 +15,7 @@ import {UserService} from'../../shared-service/user.service';
     styleUrls:['./userAccount.component.css']
 
 })
-export class userAccount {
+export class UserAccount {
     private user:User;
     private activeUser:User;
 
