@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import {UserService} from'../../shared-service/user.service';
 import {User} from '../../user';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class NavbarComponent {
 
     private activeUser:User;
 
-    constructor(private _userService:UserService) {  }
+    constructor(private _userService:UserService,private _router: Router) {  }
     
     urlImg = '../../../assets/images/logo.png'
 
@@ -28,8 +29,10 @@ export class NavbarComponent {
         });
     }
 
-    deleteActiveUser(){
-
+    deleteActUser(){
+       
         this._userService.deleteActiveUser();
+        window.location.reload(true);
+        this._router.navigateByUrl("/");
     }
 }

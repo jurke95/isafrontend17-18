@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../user';
 import { UserService } from '../../shared-service/user.service';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   
   
 
-  constructor(private _userService:UserService) {
+  constructor(private _userService:UserService,private _router: Router) {
     
    }
 
@@ -32,7 +33,11 @@ export class LoginComponent implements OnInit {
     let loginfields = this.form.value;
     console.log("stigao login");
     this._userService.loginUser(loginfields);
+    window.location.reload(true);
+    this._router.navigateByUrl("/");
   }
 
+
+  
 
 }

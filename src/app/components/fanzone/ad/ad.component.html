@@ -18,8 +18,16 @@
                                 <p> din </p>
                             </div>
                             <div class="col-md-6">
-                                <button type="submit" (click)="makeOfferForAd(ad.id)" class="btn btn-success btn-lg btn-block cardBtn">Send</button>
+                                <button type="submit" (click)="makeOfferForAd(ad.id)" class="btn btn-primary btn-lg btn-block cardBtn">Send</button>
                             </div>
+                            <div *ngIf="this.activeUser.role==='ADMIN_FANZONE'"   class="row">
+                                    <div class="col-md-6">
+                                            <button type="submit" (click)="makeOfferForAd(ad.id)" class="btn btn-success btn-lg btn-block cardBtn">Accept</button>
+                                    </div>  
+                                    <div class="col-md-6">
+                                            <button type="submit" (click)="makeOfferForAd(ad.id)" class="btn btn-danger btn-lg btn-block cardBtn">Decline</button>
+                                    </div>
+                           </div>
                        
                     </div>
                    </form> 

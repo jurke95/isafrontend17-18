@@ -14,4 +14,18 @@ export class AppComponent {
 
           this.router = _router.url; 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

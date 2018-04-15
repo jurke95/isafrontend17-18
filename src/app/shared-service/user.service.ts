@@ -69,11 +69,17 @@ createUser(u:any) {
   }
 
 
- deleteActiveUser():Observable<any>{
-  return this.httpClient.get('http://localhost:8084/user/deleteActiveUser');
+ deleteActiveUser(){
+   
+  return this.httpClient.get('http://localhost:8084/user/deleteActiveUser').subscribe( data=>{
 
-  
- }
+      
+  alert(data.message);
+
+  })
+
+}
+ 
 
 
 }
