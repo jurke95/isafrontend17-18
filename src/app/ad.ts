@@ -4,6 +4,7 @@ export class Ad {
     description: string;
     date: Date;
     image: string;
+    accepted:boolean;
 
 
 

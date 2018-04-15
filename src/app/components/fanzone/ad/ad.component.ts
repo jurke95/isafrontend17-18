@@ -53,7 +53,17 @@ export class AdComponent implements OnInit{
 
     }
 
+   declineAd(adid:any){
+  
+    this._adService.deleteAd(adid);
+    this._adService.getAds().subscribe( data => this.ads = data.ads);
 
+   }
+
+   acceptAd(adid:any){
+
+    this._adService.acceptAd(adid);
+   }
 
 
 

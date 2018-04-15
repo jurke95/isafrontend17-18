@@ -1,5 +1,5 @@
 <div class="container">
-    <div *ngFor="let ad of ads" class="row productCard" > <!-- *ngFor="let ad of ads"-->
+    <div *ngFor="let ad of ads"  class="row productCard" > <!-- *ngFor="let ad of ads"-->
                 <div class="col-md-3 cardInline">
                         <img  width="220px" hight="170:" src="../../../../assets/images/ad.jpg" alt="">     
                 </div>
@@ -22,10 +22,10 @@
                             </div>
                             <div *ngIf="this.activeUser.role==='ADMIN_FANZONE'"   class="row">
                                     <div class="col-md-6">
-                                            <button type="submit" (click)="makeOfferForAd(ad.id)" class="btn btn-success btn-lg btn-block cardBtn">Accept</button>
+                                            <button type="submit" (click)="acceptAd(ad.id)" class="btn btn-success btn-lg btn-block cardBtn">Accept</button>
                                     </div>  
                                     <div class="col-md-6">
-                                            <button type="submit" (click)="makeOfferForAd(ad.id)" class="btn btn-danger btn-lg btn-block cardBtn">Decline</button>
+                                            <button type="submit" (click)="declineAd(ad.id)" class="btn btn-danger btn-lg btn-block cardBtn">Decline</button>
                                     </div>
                            </div>
                        
@@ -37,6 +37,6 @@
    
                 </div>
     </div>
-   <button type="button" [routerLink]="['/fanzone/ads/add']" [routerLinkActive]="['is-active']" class="btn btn-primary btn-lg btn-block cardBtn">+Ad</button>
+   <button  type="button" [routerLink]="['/fanzone/ads/add']" [routerLinkActive]="['is-active']" class="btn btn-primary btn-lg btn-block cardBtn">+Ad</button>
 
 </div> 

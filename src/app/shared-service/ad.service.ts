@@ -55,6 +55,26 @@ export class AdService {
     
     }
 
+   deleteAd(id:any){
+
+    return this._http.delete('http://localhost:8084/fanzone/deleteAds/'+id).subscribe(
+
+    (data:any)=>{alert(data.message);}
+    )
+   }
+
+   acceptAd(id:any){
+
+   return this._http.post('http://localhost:8084/fanzone/acceptAd/'+id).subscribe(
+
+    (data:any)=>{alert(data.message);}
+  )
+
+   
+
+
+   }
+
    makeOffer(idad:any,money:any,userid:any){
   
      this._http.post('http://localhost:8084/fanzone/makeOffer/'+idad+'/?userId='+userid+'&offer='+money)
