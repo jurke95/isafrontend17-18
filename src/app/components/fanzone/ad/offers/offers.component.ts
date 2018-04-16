@@ -31,7 +31,7 @@ export class OffersComponent implements OnInit{
 
         this._adService.getAd(x).subscribe((data)=>this.ad=data);
 
-        this._offerService.getOffersForAd(x).subscribe((data)=>this.offers=data.offers); 
+        this._offerService.getOffersForAd(x).subscribe((data)=>this.offers=data); 
 
     }
 

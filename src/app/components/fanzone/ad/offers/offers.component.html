@@ -1,3 +1,4 @@
+<div class="col-md-5">
 <table class="table table-striped">
     <thead>
       <tr>
@@ -5,9 +6,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let offer of offers">
-        <td>  has given a this bid:{{offer?.bid}} <button type="button" class="btn btn-success">Accept</button></td> 
-      </tr>
+      <ng-container *ngFor="let offer of offers">
       <tr>
+        <td>  has given a this bid:<strong>{{offer.bid}}</strong> <button type="button" class="btn btn-success float-right">Accept</button></td> 
+      </tr>
+      </ng-container>
     </tbody>
   </table>
+</div>
