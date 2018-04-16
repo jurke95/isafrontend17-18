@@ -41,6 +41,24 @@ createUser(u:any) {
   (data:any)=>{ alert(data.message);}
   )
   }
+  editUser(u:any) {
+
+    this.user=u;
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const body = JSON.stringify(this.user);
+    console.log(this.user);
+    this.httpClient.post('http://localhost:8084/user/edituser',
+    {name:this.user.name,
+     surname:this.user.surname,
+    email:this.user.email,
+    password1:this.user.password1,
+    password2:this.user.password2,
+    phonenumber:this.user.phonenumber,
+    city:this.user.city})
+    .subscribe(
+    (data:any)=>{ alert(data.message);}
+    )
+    }
 
   loginUser(u:any) {
     this.user=u;
