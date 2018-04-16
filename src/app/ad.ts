@@ -1,3 +1,5 @@
+import {User} from './user';
+
 export class Ad {
     id:number;
     name: string;
@@ -5,6 +7,7 @@ export class Ad {
     date: Date;
     image: string;
     accepted:boolean;
+    admaker:User;
 
 
 
