@@ -73,6 +73,7 @@ import { EditproductComponent } from './components/fanzone/editproduct/editprodu
 import { AddadComponent } from './components/addad/addad.component';
 import {OffersComponent} from './components/fanzone/ad/offers/offers.component';
 import { EditUser } from './components/userAccount/editUser/editUser.component';
+import { ConfirmEmail } from './components/confirmEmail/confirmEmail.component';
 
 
 
@@ -96,7 +97,8 @@ const appRoutes:Routes=[
 {path:'fanzone/ads',component:AdComponent},
 {path:'fanzone/ads/add',component:AddadComponent},
 {path:'reservation',component:ReservationComponent},
-{path:'fanzone/ads/offers/:id',component:OffersComponent}
+{path:'fanzone/ads/offers/:id',component:OffersComponent},
+{path:'confirmEmail/:token',component:ConfirmEmail}
 
 
 
@@ -124,7 +126,8 @@ enableProdMode();
     ReservationComponent,
     EditproductComponent,
     AddadComponent,
-    OffersComponent
+    OffersComponent,
+    ConfirmEmail
 
     
   ],

@@ -60,6 +60,15 @@ createUser(u:any) {
     )
     }
 
+  confirmEmail(token:any){
+    this.httpClient.post('http://localhost:8084/user/confirm?token='+token,{})
+    .subscribe(
+    (data:any)=>{  alert(data.message);}
+    )
+  }
+
+  
+
   loginUser(u:any) {
     this.user=u;
     const headers = new Headers({'Content-Type': 'application/json'});

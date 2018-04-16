@@ -39,15 +39,7 @@ import { RouterModule, Routes,Router } from '@angular/router';
 
     reserveSelectedProduct(idprod:any,iduser:any){
       
-     this._productService.reserveProduct(idprod,this.activeUser.id).subscribe(
-           
-      data=>{
-        
-      }
-
-
-
-     )
+     this._productService.reserveProduct(idprod,this.activeUser.id);
 
   }
 

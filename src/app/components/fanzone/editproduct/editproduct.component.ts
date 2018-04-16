@@ -5,6 +5,8 @@ import {Product} from '../../../product';
 import { ProductService } from '../../../shared-service/product.service';
 import 'rxjs/add/operator/switchMap';
 import { Router } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
+import { ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-editproduct',
@@ -16,7 +18,9 @@ export class EditproductComponent implements OnInit {
   public form: FormGroup;
   public product:Product;
   private tempProduct:Product;
- id_product:any;
+  private id_product:any;
+  private urlId : any;
+  private urlIdPar : any;
 
   constructor(private productService:ProductService,private route: ActivatedRoute,private _router: Router
   )
@@ -36,9 +40,13 @@ export class EditproductComponent implements OnInit {
       boxoffice: new FormControl("",[Validators.required])
   })
 
+  this.route.paramMap.switchMap((params: ParamMap) => {
+    let user_id = params.get('id');
+   return user_id;
+})
+.subscribe(res => this.urlId = res);
 
-
-    var x=this.route.params._value.id;
+var x=this.urlId;
  
 
     this.productService.getProduct(x)
@@ -56,22 +64,19 @@ export class EditproductComponent implements OnInit {
         
       }
     );
-  
-
-  
-  
-    
-
- 
-
-    
 
 }
 
  
 
 editProductForm(){
-  var par=this.route.params._value.id;
+  this.route.paramMap.switchMap((params: ParamMap) => {
+    let user_id = params.get('id');
+   return user_id;
+})
+.subscribe(res => this.urlIdPar = res);
+
+var par=this.urlIdPar;
   let productfields = this.form.value;
    console.log(productfields);
   this.productService.updateProduct(productfields,par);
@@ -79,8 +84,4 @@ editProductForm(){
     window.location.reload(true);
 
 }
-
-
-
-
 }

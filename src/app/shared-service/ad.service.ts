@@ -71,7 +71,7 @@ export class AdService {
 
    acceptAd(id:any){
 
-   return this._http.post('http://localhost:8084/fanzone/acceptAd/'+id).subscribe(
+   return this._http.post('http://localhost:8084/fanzone/acceptAd/'+id,{}).subscribe(
 
     (data:any)=>{alert(data.message);}
   )
@@ -83,7 +83,7 @@ export class AdService {
 
    makeOffer(idad:any,money:any,userid:any){
   
-     this._http.post('http://localhost:8084/fanzone/makeOffer/'+idad+'/?userId='+userid+'&offer='+money)
+     this._http.post('http://localhost:8084/fanzone/makeOffer/'+idad+'/?userId='+userid+'&offer='+money,{})
      .subscribe(
       (data:any)=>{ alert(data.message);}
     

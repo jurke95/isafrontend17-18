@@ -14,6 +14,8 @@ import { RouterModule, Routes,Router } from '@angular/router';
 import { ActivatedRoute, UrlSegment } from '@angular/router';
 import {UserService} from '../../../../shared-service/user.service';
 import {User} from '../../../../user';
+import 'rxjs/add/operator/switchMap';
+import { ParamMap } from '@angular/router';
 
 @Component({
     selector:'add-offers',
@@ -27,10 +29,19 @@ export class OffersComponent implements OnInit{
     private offers = [];
     private ad:Ad;
     private activeUser:User;
+    private urlId : any;
 
     constructor(private _offerService:OfferService,private _userService:UserService ,private _adService:AdService,private route: ActivatedRoute,private _router: Router){}
     ngOnInit(){
-        var x=this.route.params._value.id;
+        
+
+        this.route.paramMap.switchMap((params: ParamMap) => {
+            let user_id = params.get('id');
+           return user_id;
+        })
+        .subscribe(res => this.urlId = res);
+
+        var x=this.urlId;
 
         this._adService.getAd(x).subscribe((data)=>this.ad=data);
 

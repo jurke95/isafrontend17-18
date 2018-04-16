@@ -81,7 +81,7 @@ export class ProductService {
 
     reserveProduct(idprod:any,userid:any){
       
-      return this._http.post('http://localhost:8084/fanzone/reservationProduct?userId='+userid+'&productId='+idprod).subscribe(
+      return this._http.post('http://localhost:8084/fanzone/reservationProduct?userId='+userid+'&productId='+idprod,{}).subscribe(
       (data:any)=>{alert(data.message);}
 
       )
