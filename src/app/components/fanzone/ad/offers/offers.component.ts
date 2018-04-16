@@ -40,5 +40,10 @@ export class OffersComponent implements OnInit{
 
     }
 
+   acceptOffer(adid:any,winner:any){
+
+    this._offerService.acceptOfferFromBidder(adid,winner);
+
+   }
 
 }

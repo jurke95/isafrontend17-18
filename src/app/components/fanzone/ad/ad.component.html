@@ -12,14 +12,14 @@
                     <form [formGroup]="form" >
                      <div class="row adTop">
                         
-                            <div class="col-md-7 adTop">
+                            <div *ngIf="ad?.admaker?.id!==activeUser?.id" class="col-md-7 adTop">
                                  <input type="text" class="form-control"  formControlName="bid" placeholder="Write your bid"/>
                             </div>
-                            <div class="col-md-2 adTop">
+                            <div *ngIf="ad?.admaker?.id!==activeUser?.id" class="col-md-2 adTop">
                                 <p> din </p>
                             </div>
                             <div class="col-md-7">
-                                <button type="submit" (click)="makeOfferForAd(ad.id)" class="btn btn-primary btn-lg btn-block cardBtn">Send</button>
+                                <button *ngIf="ad?.admaker?.id!==activeUser?.id" type="submit" (click)="makeOfferForAd(ad.id)" class="btn btn-primary btn-lg btn-block cardBtn">Send</button>
                             </div>
                             <div *ngIf="this.activeUser?.role==='ADMIN_FANZONE'"   class="row">
                                     <div class="col-md-6">
