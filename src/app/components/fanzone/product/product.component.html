@@ -12,12 +12,12 @@
                     <p> {{product.price}} <small>  </small> din </p>
                     <p> {{product.boxoffice}}</p>
                     <div class="row">
-                         <button  *ngIf="this.activeUser.role==='ADMIN_FANZONE'" type="button"  [routerLink]="['/fanzone','products','edit',product.id]" [routerLinkActive]="['is-active']" class="btn col-md-6  btn-lg btn-block cardBtn">Edit</button>
-                         <button  *ngIf="this.activeUser.role==='ADMIN_FANZONE'" type="button"  (click)="deleteSelectedProduct(product.id)" class="btn btn-danger col-md-6 btn-lg btn-block cardBtn">Delete</button>
+                         <button  *ngIf="this.activeUser?.role==='ADMIN_FANZONE'" type="button"  [routerLink]="['/fanzone','products','edit',product.id]" [routerLinkActive]="['is-active']" class="btn col-md-6  btn-lg btn-block cardBtn">Edit</button>
+                         <button  *ngIf="this.activeUser?.role==='ADMIN_FANZONE'" type="button"  (click)="deleteSelectedProduct(product.id)" class="btn btn-danger col-md-6 btn-lg btn-block cardBtn">Delete</button>
                     </div>
                     
                 </div>
     </div>
-   <button *ngIf="this.activeUser.role==='ADMIN_FANZONE'" type="button" [routerLink]="['/fanzone/products/add']" [routerLinkActive]="['is-active']" class="btn btn-primary btn-lg btn-block cardBtn">addProduct</button>
+   <button *ngIf="this.activeUser?.role==='ADMIN_FANZONE'" type="button" [routerLink]="['/fanzone/products/add']" [routerLinkActive]="['is-active']" class="btn btn-primary btn-lg btn-block cardBtn">addProduct</button>
 
 </div>

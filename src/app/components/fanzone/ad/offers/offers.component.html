@@ -1,12 +1,12 @@
 <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">Offers for {{ad.name}}</th> 
+        <th scope="col">Offers for {{ad?.name}}</th> 
       </tr>
     </thead>
     <tbody>
-      <tr> <!-- *ngFor="let reservation of reservations" -->
-        <td> user.name has given a this bid:offer.bid <button type="button" class="btn btn-success">Accept</button></td> 
+      <tr *ngFor="let offer of offers">
+        <td>  has given a this bid:{{offer?.bid}} <button type="button" class="btn btn-success">Accept</button></td> 
       </tr>
       <tr>
     </tbody>
