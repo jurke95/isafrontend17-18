@@ -10,6 +10,7 @@ import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from
 })
 export class EditUser{
     public form: FormGroup;
+    private activeUser:User;
   
   
 
@@ -19,30 +20,39 @@ export class EditUser{
 
   ngOnInit() {
 
-    this.form = new FormGroup({
-      name: new FormControl('',[Validators.required]),
-      surname: new FormControl('',[Validators.required]),
-      email: new FormControl('',[Validators.required]),
-      password1: new FormControl('', [Validators.required]),
-      password2: new FormControl('', [Validators.required]),
-      city: new FormControl('', Validators.required),
-      phonenumber: new FormControl('', [Validators.required])
-      
 
-  })
+    this.form = new FormGroup({
+        name: new FormControl("",[Validators.required]),
+        surname: new FormControl("",[Validators.required]),
+        email: new FormControl("",[Validators.required]),
+        password1: new FormControl("", [Validators.required]),
+        password2: new FormControl("", [Validators.required]),
+        city: new FormControl("", Validators.required),
+        phonenumber: new FormControl("", [Validators.required])
+    })
+  
+
+    this._userService.getActiveUser().subscribe((data)=>{this.activeUser=data;
+        this.form.setValue({
+            name:    data.name,
+            surname: data.surname,
+            email:   data.email,
+            city:     data.city,
+            phonenumber:    data.phonenumber,
+            password1:   data.password,
+            password2:   data.password,
+         });
+  });
+
+   
+
   }
 
   editUserForm(){
     let userfields = this.form.value;
     console.log("stigao do edit");
     this._userService.editUser(userfields);
-    
-  
-}
-
-
-
-
+  }
 
 
 }

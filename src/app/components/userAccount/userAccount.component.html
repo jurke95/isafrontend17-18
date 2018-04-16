@@ -7,14 +7,14 @@
                         <img width=140px hight=100px src="../../../assets/images/user.ico" alt="" class="img-rounded img-responsive" />
                     </div>
                     <div class="col-md-8">
-                        <h4> {{activeUser.name}} {{activeUser.surname}}</h4>
-                        <small><cite>{{activeUser.city}}</cite></small>
+                        <h4> {{activeUser?.name}} {{activeUser?.surname}}</h4>
+                        <small><cite>{{activeUser?.city}}</cite></small>
                         <p>
-                            {{activeUser.email}}
+                            {{activeUser?.email}}
                             <br />
-                            {{activeUser.phonenumber}}
+                            {{activeUser?.phonenumber}}
                         </p>
-                            <button type="button" class="btn btn-primary">Edit</button>
+                            <button type="button" [routerLink]="['/userAccount/editUser']" [routerLinkActive]="['is-active']" class="btn btn-primary">Edit</button>
                     </div>
                 </div>
             </div>
