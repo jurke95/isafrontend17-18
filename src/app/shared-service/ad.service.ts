@@ -35,6 +35,12 @@ export class AdService {
     
    }
 
+   getAd(id:any): Observable<any>{
+
+    return this._http.get('http://localhost:8084/fanzone/getAds/'+id);
+    
+   }
+
 
    addAd(a:any,userid:any){
     this.ad=a;

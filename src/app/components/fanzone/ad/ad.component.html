@@ -5,7 +5,7 @@
                         <img  width="220px" hight="170:" src="../../../../assets/images/ad.jpg" alt="">     
                 </div>
                 <div class="col-md-6 cardInline">
-                    <h4 class="list-group-item-heading"> {{ad.name}} <button type="button" class="btn btn-link">View bids</button> </h4>
+                    <h4 class="list-group-item-heading"> {{ad.name}} <button type="button" [routerLink]="['/fanzone','ads','offers',ad.id]" class="btn btn-link">View bids</button> </h4>
                     <p class="list-group-item-text">{{ad.description}} </p>
                 </div>
                 <div class="col-md-3 text-center cardInline">
