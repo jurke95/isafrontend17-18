@@ -1,6 +1,6 @@
 <div class="container">
     <div *ngFor="let ad of ads"  class="row productCard" > <!-- *ngFor="let ad of ads"-->
-        <ng-container *ngIf="ad.accepted || this.activeUser.role==='ADMIN_FANZONE'">
+        <ng-container *ngIf="ad.accepted || this.activeUser?.role==='ADMIN_FANZONE'">
                 <div class="col-md-3 cardInline">
                         <img  width="220px" hight="170:" src="../../../../assets/images/ad.jpg" alt="">     
                 </div>
@@ -21,7 +21,7 @@
                             <div class="col-md-7">
                                 <button type="submit" (click)="makeOfferForAd(ad.id)" class="btn btn-primary btn-lg btn-block cardBtn">Send</button>
                             </div>
-                            <div *ngIf="this.activeUser.role==='ADMIN_FANZONE'"   class="row">
+                            <div *ngIf="this.activeUser?.role==='ADMIN_FANZONE'"   class="row">
                                     <div class="col-md-6">
                                             <button *ngIf="!ad.accepted" type="submit" (click)="acceptAd(ad.id)" class="btn btn-success btn-lg btn-block cardBtn">Accept</button>
                                     </div>  

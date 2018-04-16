@@ -56,13 +56,14 @@ export class AdComponent implements OnInit{
    declineAd(adid:any){
   
     this._adService.deleteAd(adid);
-    this._adService.getAds().subscribe( data => this.ads = data.ads);
+    window.location.reload(true);
 
    }
 
    acceptAd(adid:any){
 
     this._adService.acceptAd(adid);
+    window.location.reload(true);
    }
 
 
