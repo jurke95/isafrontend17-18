@@ -31,7 +31,15 @@ export class OfferService {
    }
 
 
+ acceptOfferFromBidder(idad:any,bidderid:any){
 
+   this._http.post('http://localhost:8084/fanzone/acceptTheOffer/'+idad+'/?userId='+bidderid)
+   .subscribe(
+    (data:any)=>{ alert(data.message);}
+
+   )
+
+ }
 
 
 

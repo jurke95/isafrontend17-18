@@ -8,7 +8,7 @@
     <tbody>
       <ng-container *ngFor="let offer of offers">
       <tr>
-        <td><strong><i>{{offer?.bidder.email}}</i></strong>  has given a this bid:<strong>  {{offer?.bid}} <i>RSD</i></strong> <button *ngIf="ad?.admaker?.id===activeUser?.id" type="button" class="btn btn-success float-right">Accept</button></td> 
+        <td><strong><i>{{offer?.bidder.email}}</i></strong>  has given a this bid:<strong>  {{offer?.bid}} <i>RSD</i></strong> <button *ngIf="ad?.admaker?.id===activeUser?.id" type="button" (click)="acceptOffer(ad?.id,offer?.bidder.id)" class="btn btn-success float-right">Accept</button></td> 
       </tr>
       </ng-container>
     </tbody>
