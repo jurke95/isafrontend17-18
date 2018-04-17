@@ -54,6 +54,10 @@ export class OffersComponent implements OnInit{
    acceptOffer(adid:any,winner:any){
 
     this._offerService.acceptOfferFromBidder(adid,winner);
+    this._adService.deleteAd(adid);
+    window.location.reload(true);
+    
+
 
    }
 

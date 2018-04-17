@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import { RouterModule, Routes,Router } from '@angular/router';
 
 import {Ad} from '../ad';
 
@@ -19,7 +20,7 @@ export class AdService {
   
   private ad:Ad;
 
-  constructor(private _http:HttpClient,private datePipe: DatePipe) { }
+  constructor(private _http:HttpClient,private datePipe: DatePipe,private _router:Router) { }
 
 
   transformDate(date) {
@@ -65,7 +66,10 @@ export class AdService {
 
     return this._http.delete('http://localhost:8084/fanzone/deleteAds/'+id).subscribe(
 
-    (data:any)=>{alert(data.message);}
+    (data:any)=>{alert(data.message);
+      
+    
+    }
     )
    }
 

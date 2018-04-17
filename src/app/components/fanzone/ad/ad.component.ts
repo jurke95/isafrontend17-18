@@ -61,7 +61,7 @@ export class AdComponent implements OnInit{
    }
 
    acceptAd(adid:any){
-
+  
     this._adService.acceptAd(adid);
     window.location.reload(true);
    }
