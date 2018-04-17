@@ -20,6 +20,7 @@ export class CinemaService {
  private baseUrl:string='http://localhost:8084/cinemas';
  private cinema:Cinema;
  private theatre:Theatre;
+ 
 
  
 
@@ -39,10 +40,12 @@ export class CinemaService {
  }
 
 addCinema(c:any){
+
 this.cinema=c;
 //console.log(this.cinema);
-console.log(this.cinema.admin);
-this._http.post('http://localhost:8084/cinemas/registration',
+
+
+  this._http.post('http://localhost:8084/cinemas/registration',
   {id:this.cinema.id,
   name:this.cinema.name,
    location:this.cinema.location,
@@ -55,6 +58,7 @@ this._http.post('http://localhost:8084/cinemas/registration',
   )
 
 
+
 }
 
 
@@ -62,6 +66,11 @@ this._http.post('http://localhost:8084/cinemas/registration',
 
 addTheatre(t:any){
   this.theatre=t;
+  if(this.theatre.admin[0]==null){
+    this.theatre.admin="null";
+  }
+
+  console.log(this.theatre.admin[0]);
   //console.log(this.theatre);
  
   this._http.post('http://localhost:8084/theatres/registration',
