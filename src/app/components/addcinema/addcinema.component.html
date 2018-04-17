@@ -3,14 +3,6 @@
 		<div class="panel panel-default">
 			<div class="panel-heading" align="center">CINEMA REGISTRATION</div>
 				<div class="panel-body">
-            <div class="row padding-top-10">
-                <div class="col-md-2">
-                  <label for="Id" class="control-label">Id:</label>
-                </div>
-                <div class="col-md-5 form-group input-group">
-                  <input type="number" class="form-control" id="id" placeholder="Id"  formControlName="id"/>
-                </div>
-              </div>
 					<div class="row padding-top-10">
 						<div class="col-md-2">
 							<label for="Name" class="control-label">Name:</label>
@@ -34,6 +26,18 @@
 						</div>
 						<div class="col-md-10 form-group input-group">
 							<input type="text" class="form-control" id="promOpis" placeholder="promOpis"  formControlName="promOpis"/>
+						</div>
+          </div>
+					<div class="row padding-top-10 ">
+						<div class="col-md-2">
+							<label for="Promotivni opis" class="control-label">Admin</label>
+						</div>
+						<div class="col-md-5 form-group input-group">
+							<select  multiple class="form-control" id="admin" placeholder="admin"  formControlName="admin">
+								<ng-container *ngFor="let user of users">							
+								<option  *ngIf="user.role==='USER'">{{user?.email}}</option>
+								</ng-container>
+							</select>
 						</div>
           </div>
           

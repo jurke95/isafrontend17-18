@@ -40,12 +40,14 @@ export class CinemaService {
 
 addCinema(c:any){
 this.cinema=c;
-console.log(this.cinema);
+//console.log(this.cinema);
+console.log(this.cinema.admin);
 this._http.post('http://localhost:8084/cinemas/registration',
   {id:this.cinema.id,
   name:this.cinema.name,
    location:this.cinema.location,
   promOpis:this.cinema.promOpis,
+  admin:this.cinema.admin[0]
   
  })
   .subscribe(
@@ -60,13 +62,15 @@ this._http.post('http://localhost:8084/cinemas/registration',
 
 addTheatre(t:any){
   this.theatre=t;
+  //console.log(this.theatre);
  
   this._http.post('http://localhost:8084/theatres/registration',
     {id:this.theatre.id,
     name:this.theatre.name,
      location:this.theatre.location,
     promOpis:this.theatre.promOpis,
-    
+    admin:this.theatre.admin[0]
+  
    })
     .subscribe(
     (data:any)=>{ }

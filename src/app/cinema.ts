@@ -3,4 +3,5 @@ export class Cinema {
   name: string;
   location: string;
   promOpis: string;
+  admin: string;
 }

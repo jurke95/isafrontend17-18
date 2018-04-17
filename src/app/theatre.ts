@@ -3,4 +3,5 @@ export class Theatre {
   name: string;
   location: string;
   promOpis: string;
+  admin: string;
 }

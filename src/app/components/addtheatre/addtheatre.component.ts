@@ -30,11 +30,10 @@ export class AddtheatreComponent implements OnInit {
 
 
     this.form = new FormGroup({
-      id: new FormControl("",[Validators.required]),
       name: new FormControl('',[Validators.required]),
       location: new FormControl('', [Validators.required]),
       promOpis: new FormControl('',[Validators.required]),
-      admin: new FormControl('',[Validators.required]),
+      admin: new FormControl("",[Validators.required]),
   })
   }
 
