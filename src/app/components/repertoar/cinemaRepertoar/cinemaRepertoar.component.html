@@ -1,19 +1,19 @@
 <div class="container">
         <button type="button" [routerLink]="['/cinemas/registration']" [routerLinkActive]="['is-active']" class="btn btn-primary btn-lg btn-block cardBtn">+ Projection</button>
-        <h1><i>Arena CINAPLEX </i></h1>
+        <h1><i>{{c?.name}} </i></h1>
         <div *ngFor="let projection  of projections"  class="row cinemaCard" > <!--*ngFor="let cinema of cinemas"-->
                 <div class="col-md-3 cardInline">
-                        <img  width="220px" hight="170:" src={{projection.poster}} alt="cinema">     <!--slika projekcije-->
+                        <img  width="220px" hight="170:" src={{projection?.poster}} alt="cinema">     <!--slika projekcije-->
                 </div>
                 <div class="col-md-6 cardInline">
-                    <h5 class="list-group-item-heading"><strong>Name: </strong>{{projection.name}}</h5>
-                    <h5 class="list-group-item-heading"><strong>Actors: </strong>{{projection.actors}}</h5>
-                    <h5 class="list-group-item-heading"><strong>Geners: </strong>{{projection.geners}}</h5>
-                    <h5 class="list-group-item-heading"><strong>Director: </strong>{{projection.director}}</h5>
-                    <h5 class="list-group-item-heading"><strong>Runtime: </strong>{{projection.runtime}}</h5>
-                    <h5 class="list-group-item-heading"><strong>Rating: </strong>{{projection.rating}}</h5>
+                    <h5 class="list-group-item-heading"><strong>Name: </strong>{{projection?.name}}</h5>
+                    <h5 class="list-group-item-heading"><strong>Actors: </strong>{{projection?.actors}}</h5>
+                    <h5 class="list-group-item-heading"><strong>Geners: </strong>{{projection?.geners}}</h5>
+                    <h5 class="list-group-item-heading"><strong>Director: </strong>{{projection?.director}}</h5>
+                    <h5 class="list-group-item-heading"><strong>Runtime: </strong>{{projection?.runtime}}</h5>
+                    <h5 class="list-group-item-heading"><strong>Rating: </strong>{{projection?.rating}}</h5>
                   
-                    <p class="list-group-item-text"><strong>Description: </strong>{{projection.storyline}}</p>
+                    <p class="list-group-item-text"><strong>Description: </strong>{{projection?.storyline}}</p>
                 </div>
     </div>
    

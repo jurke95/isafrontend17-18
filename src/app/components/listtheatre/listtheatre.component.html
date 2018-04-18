@@ -8,7 +8,7 @@
                     <p class="list-group-item-text">{{theatre.promOpis}} </p>
                 </div>
                 <div class="col-md-3 text-center cardInline">
-                    <button type="button" class="btn btn-primary btn-lg btn-block cardBtn">Details</button>
+                    <button type="button" [routerLink]="['/theatres','repertoar',theatre.id]" class="btn btn-primary btn-lg btn-block cardBtn">Details</button>
                     <div class="stars">
                         <span class="glyphicon glyphicon-star"></span><!--Treba da prikazuje zvezdice-->
                         <span class="glyphicon glyphicon-star"></span>

@@ -75,6 +75,7 @@ import {OffersComponent} from './components/fanzone/ad/offers/offers.component';
 import { EditUser } from './components/userAccount/editUser/editUser.component';
 import { ConfirmEmail } from './components/confirmEmail/confirmEmail.component';
 import { CinemaRepertoar } from './components/repertoar/cinemaRepertoar/cinemaRepertoar.component';
+import { TheatreRepertoarComponent } from './components/repertoar/theatre-repertoar/theatre-repertoar/theatre-repertoar.component';
 
 
 
@@ -99,7 +100,8 @@ const appRoutes:Routes=[
 {path:'reservation',component:ReservationComponent},
 {path:'fanzone/ads/offers/:id',component:OffersComponent},
 {path:'confirmEmail/:token',component:ConfirmEmail},
-{path:'cinemas/repertoar/:id',component:CinemaRepertoar}
+{path:'cinemas/repertoar/:id',component:CinemaRepertoar},
+{path:'theatres/repertoar/:id',component:TheatreRepertoarComponent}
 
 
 
@@ -129,7 +131,8 @@ enableProdMode();
     AddadComponent,
     OffersComponent,
     ConfirmEmail,
-    CinemaRepertoar
+    CinemaRepertoar,
+    TheatreRepertoarComponent
 
     
   ],

@@ -1,0 +1,21 @@
+<div class="container">
+        <button type="button" [routerLink]="['/theatres/registration']" [routerLinkActive]="['is-active']" class="btn btn-primary btn-lg btn-block cardBtn">+ Projection</button>
+        <h1><i>{{t?.name}} </i></h1>
+        <div *ngFor="let projectiont  of projections"  class="row cinemaCard" > <!--*ngFor="let cinema of cinemas"-->
+                <div class="col-md-3 cardInline">
+                        <img  width="220px" hight="170:" src={{projectiont?.poster}} alt="theatre">     <!--slika projekcije-->
+                </div>
+                <div class="col-md-6 cardInline">
+                    <h5 class="list-group-item-heading"><strong>Name: </strong>{{projectiont?.name}}</h5>
+                    <h5 class="list-group-item-heading"><strong>Actors: </strong>{{projectiont?.actors}}</h5>
+                    <h5 class="list-group-item-heading"><strong>Geners: </strong>{{projectiont?.geners}}</h5>
+                    <h5 class="list-group-item-heading"><strong>Director: </strong>{{projectiont?.director}}</h5>
+                    <h5 class="list-group-item-heading"><strong>Runtime: </strong>{{projectiont?.runtime}}</h5>
+                    <h5 class="list-group-item-heading"><strong>Rating: </strong>{{projectiont?.rating}}</h5>
+                  
+                    <p class="list-group-item-text"><strong>Description: </strong>{{projectiont?.storyline}}</p>
+                </div>
+    </div>
+   
+
+</div>

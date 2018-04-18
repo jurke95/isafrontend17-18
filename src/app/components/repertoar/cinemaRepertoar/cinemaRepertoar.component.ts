@@ -15,6 +15,7 @@ import { ParamMap } from '@angular/router';
   
     public projections: any;
     private urlId : any;
+    private c:Cinema;
 
 
     constructor(private _cinemaService:CinemaService,private route: ActivatedRoute,private _router: Router) {
@@ -28,6 +29,9 @@ import { ParamMap } from '@angular/router';
      return user_id;
   })
   .subscribe(res => this.urlId = res);
+
+   this._cinemaService.getCinema(this.urlId).subscribe((data)=>{this.c=data;
+   });
 
 
    this._cinemaService.getRepertoar(this.urlId).subscribe((data)=>{this.projections=data;

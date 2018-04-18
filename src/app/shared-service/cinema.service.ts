@@ -32,7 +32,15 @@ export class CinemaService {
   
  }
 
+ getCinema(id:any):Observable<any>{
 
+  return this._http.get('http://localhost:8084/cinemas/getCinemas/'+id);
+ }
+ 
+ getTheatre(id:any):Observable<any>{
+
+  return this._http.get('http://localhost:8084/theatres/getTheatres/'+id);
+ }
  getTheatres(): Observable<any>{
 
   return this._http.get('http://localhost:8084/theatres/getTheatres');
@@ -42,7 +50,7 @@ export class CinemaService {
 addCinema(c:any){
 
 this.cinema=c;
-//console.log(this.cinema);
+
 
 
   this._http.post('http://localhost:8084/cinemas/registration',
@@ -66,17 +74,12 @@ this.cinema=c;
 
 addTheatre(t:any){
   this.theatre=t;
-  if(this.theatre.admin[0]==null){
-    this.theatre.admin="null";
-  }
-
-  console.log(this.theatre.admin[0]);
-  //console.log(this.theatre);
+  
  
   this._http.post('http://localhost:8084/theatres/registration',
     {id:this.theatre.id,
     name:this.theatre.name,
-     location:this.theatre.location,
+    location:this.theatre.location,
     promOpis:this.theatre.promOpis,
     admin:this.theatre.admin[0]
   
@@ -96,8 +99,11 @@ addTheatre(t:any){
     
    }
 
+   getRepertoarT(id:any): Observable<any>{
 
-
+    return this._http.get('http://localhost:8084/theatres/repertoar/'+id);
+    
+   }
 
 
 
