@@ -90,7 +90,11 @@ addTheatre(t:any){
 
 
 
+  getRepertoar(id:any): Observable<any>{
 
+    return this._http.get('http://localhost:8084/cinemas/repertoar/'+id);
+    
+   }
 
 
 
