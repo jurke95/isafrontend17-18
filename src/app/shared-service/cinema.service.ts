@@ -117,6 +117,16 @@ addTheatre(t:any){
     
    }
 
+   getTermsByCinemaAndProjectionName(cinemaName:any,projectionName:any): Observable<any>{
 
+    return this._http.get('http://localhost:8084/cinemas/getDateByCinemaProjection/'+cinemaName+'?projectionName='+projectionName);
+    
+   }
+
+   getHallByTermId(id:any): Observable<any>{
+
+    return this._http.get('http://localhost:8084/cinemas/getHallByTerm/'+id);
+    
+   }
 
 }

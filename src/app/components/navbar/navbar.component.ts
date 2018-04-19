@@ -23,8 +23,7 @@ export class NavbarComponent {
         
         
         
-        console.log("ovde treba da ispise rolu");
-        
+      
         
         });
     }
