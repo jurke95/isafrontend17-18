@@ -1,0 +1,73 @@
+<div class="container padding-top-10"> <!--da se smanji cela forma dodati ovde col-md-6" -->
+
+		<div class="panel panel-default">
+			<div class="panel-heading" align="center">RESERVATION</div>
+				<div class="panel-body">
+                    <div class="row padding-top-10 ">
+						<div class="col-md-2">
+							<label for="projection" class="control-label">Name:</label>
+						</div>
+						<div class="col-md-10  input-group">
+                            <select ng-model="selectedItem" ng-change="cinemaNameForm()" id="mySelectName">
+                                
+                                <option ng-repeat="cinema in cinemas" ng-selected="selectedItem == cinema?.name" value="cinema?.Name">{{cinema?.Name}}</option>
+                        
+                              </select>
+						</div>
+					</div>
+					<div class="row padding-top-10 ">
+						<div class="col-md-2">
+							<label for="projection" class="control-label">Projection:</label>
+						</div>
+						<div class="col-md-10 form-group input-group">
+                            <select  id="exampleFormControlSelect2">
+                                    <ng-container *ngFor="let projection of projections">
+                                        <option>{{projection?.name}}</option>
+                                     </ng-container>
+                              </select>
+						</div>
+					</div>
+					<div class="row padding-top-10">
+						<div class="col-md-2">
+							<label for="date" class="control-label">Date:</label>
+						</div>
+						<div class="col-md-10 form-group input-group">
+							<input id="date" placeholder="Date"  />
+						</div>
+					</div>
+					<div class="row padding-top-10 ">
+                            <div class="col-md-2">
+                                <label for="term" class="control-label">Term:</label>
+                            </div>
+                            <div class="col-md-10 form-group input-group">
+                                <select id="exampleFormControlSelect3" >
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                  </select>
+                            </div>
+                    </div>
+					<div class="row padding-top-10 ">
+                            <div class="col-md-2">
+                                <label for="hall" class="control-label">Hall:</label>
+                            </div>
+                            <div class="col-md-10 form-group input-group">
+                                <select id="exampleFormControlSelect4" >
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                  </select>
+                            </div>
+                    </div>		
+			</div>
+			<div class="panel-footer padding-top-12 padding-top-10" align="center">
+                <button type="button" class="btn btn-danger">Cancel</button>
+				<button type="submit" class="btn btn-success">Next</button>
+			</div>
+		</div>
+	
+ </div>

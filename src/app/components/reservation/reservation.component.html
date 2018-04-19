@@ -1,77 +1,15 @@
-<div class="container padding-top-10"> <!--da se smanji cela forma dodati ovde col-md-6" -->
-	<form [formGroup]="form" (ngSubmit)="registrationForm()">
-		<div class="panel panel-default">
-			<div class="panel-heading" align="center">RESERVATION</div>
-				<div class="panel-body">
-                    <div class="row padding-top-10 ">
-						<div class="col-md-2">
-							<label for="projection" class="control-label">Name:</label>
-						</div>
-						<div class="col-md-10 form-group input-group">
-                            <select class="form-control" id="exampleFormControlSelect1" formControlName="name">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                              </select>
-						</div>
-					</div>
-					<div class="row padding-top-10 ">
-						<div class="col-md-2">
-							<label for="projection" class="control-label">Projection:</label>
-						</div>
-						<div class="col-md-10 form-group input-group">
-                            <select class="form-control" id="exampleFormControlSelect2" formControlName="projection">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                              </select>
-						</div>
-					</div>
-					<div class="row padding-top-10">
-						<div class="col-md-2">
-							<label for="date" class="control-label">Date:</label>
-						</div>
-						<div class="col-md-10 form-group input-group">
-							<input type="password" class="form-control" id="date" placeholder="Date"  formControlName="date"/>
-						</div>
-					</div>
-					<div class="row padding-top-10 ">
-                            <div class="col-md-2">
-                                <label for="term" class="control-label">Term:</label>
-                            </div>
-                            <div class="col-md-10 form-group input-group">
-                                <select class="form-control" id="exampleFormControlSelect3" formControlName="term">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                  </select>
-                            </div>
-                    </div>
-					<div class="row padding-top-10 ">
-                            <div class="col-md-2">
-                                <label for="hall" class="control-label">Hall:</label>
-                            </div>
-                            <div class="col-md-10 form-group input-group">
-                                <select class="form-control" id="exampleFormControlSelect4" formControlName="hall">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                  </select>
-                            </div>
-                    </div>		
-			</div>
-			<div class="panel-footer padding-top-12 padding-top-10" align="center">
-                <button type="button" class="btn btn-danger">Cancel</button>
-				<button type="submit" class="btn btn-success">Next</button>
-			</div>
-		</div>
-	</form>
- </div>
+<div>
+    <h1 style="text-align: center;">Reservations for Cinema&Theatre!</h1>
+   </div>
+   
+   <div class="container" style="text-align: center;">
+       <div class="col-md-4 d-inline-block">
+         <img src="../../../assets/images/cinema.png" [routerLink]="['cinemaReservation']" [routerLinkActive]="['is-active']" class="img-circle" alt="Cinemas" width="304" height="236">
+         <h2 style="text-align: center;">Tickets for Cinemas</h2>
+       </div>
+       <div class="col-md-4 d-inline-block">
+         <img src="../../../assets/images/theatre.png" [routerLink]="['theatreReservation']" class="img-circle" alt="Theatres" width="304" height="236">
+         <h2 style="text-align: center;">Tickets for Theatres</h2>
+       </div>
+   </div>
+   
