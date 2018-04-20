@@ -1,90 +1,112 @@
 <div class="container padding-top-10"> <!--da se smanji cela forma dodati ovde col-md-6" -->
 
-		<div class="panel panel-default">
-			<div class="panel-heading" align="center">RESERVATION</div>
-				<div class="panel-body">
-                    <div class="row padding-top-10 ">
-						<div class="col-md-2">
-							<label for="projection" class="control-label">Name:</label>
-						</div>
-						<div class="col-md-10  input-group">
-                            <select (change)="cinemaNameForm($event.target.value)">
-                                <option>       </option>
-                                <option *ngFor="let cinema of cinemas" [value]="cinema?.name">{{cinema?.name}}</option>
-                        
-                              </select>
-						</div>
-					</div>
-					<div class="row padding-top-10 ">
-						<div class="col-md-2">
-							<label for="projection" class="control-label">Projection:</label>
-						</div>
-						<div class="col-md-10 form-group input-group">
-                            <select (change)="getTermsByCinemaAndProjectionName($event.target.value)">
-                                    <option>   </option>
-                                    <option *ngFor="let projection of projections" [value]="projection?.name">{{projection?.name}}</option>
-                              </select>
-						</div>
-					</div>
-					<div class="row padding-top-10">
-						<div class="col-md-2">
-							<label for="date" class="control-label">Date:</label>
-						</div>
-						<div class="col-md-10 form-group input-group">
-                                <select  (change)="getDateByTerm($event.target.value)">
-                                        <option>   </option>
-                                        <option *ngFor="let term of terms" [value]="term?.date">{{term?.date}}</option>
-                                </select>
-						</div>
-					</div>
-					<div class="row padding-top-10 ">
-                            <div class="col-md-2">
-                                <label for="term" class="control-label">Time:</label>
-                            </div>
-                            <div class="col-md-10 form-group input-group">
-                                    <select (change)="getHallByTerm($event.target.value)">
-                                            <option>   </option>
-                                            <ng-container *ngFor="let term of terms">
-                                            <option *ngIf="term?.date===date" [value]="term?.id">{{term?.time}}</option>
-                                            </ng-container>
-                                    </select>
-                            </div>
+        <div class="panel panel-default">
+                <div class="panel-heading" align="center">RESERVATION</div>
+                        <div class="panel-body">
+            <div class="row padding-top-10 ">
+                                        <div class="col-md-2">
+                                                <label for="projection" class="control-label">Name:</label>
+                                        </div>
+                                        <div class="col-md-10  input-group">
+                    <select (change)="cinemaNameForm($event.target.value)">
+                        <option>       </option>
+                        <option *ngFor="let cinema of cinemas"  [value]="cinema?.name">{{cinema?.name}}</option>
+                
+                      </select>
+                                        </div>
+                                </div>
+                                <div class="row padding-top-10 ">
+                                        <div class="col-md-2">
+                                                <label for="projection" class="control-label">Projection:</label>
+                                        </div>
+                                        <div class="col-md-10 form-group input-group">
+                    <select (change)="getTermsByCinemaAndProjectionName($event.target.value)">
+                            <option>   </option>
+                            <option *ngFor="let projection of projections"  [value]="projection?.name">{{projection?.name}}</option>
+                      </select>
+                                        </div>
+                                </div>
+                                <div class="row padding-top-10">
+                                        <div class="col-md-2">
+                                                <label for="date" class="control-label">Date:</label>
+                                        </div>
+                                        <div class="col-md-10 form-group input-group">
+                        <select  (change)="getDateByTerm($event.target.value)">
+                                <option>   </option>
+                                <option *ngFor="let term of terms" [value]="term?.date">{{term?.date}}</option>
+                        </select>
+                                        </div>
+                                </div>
+                                <div class="row padding-top-10 ">
+                    <div class="col-md-2">
+                        <label for="term" class="control-label">Time:</label>
                     </div>
-					<div class="row padding-top-10 ">
-                            <div class="col-md-2">
-                                <label for="hall" class="control-label">Hall:</label>
-                            </div>
-                            <div class="col-md-10 form-group input-group">
-                                    <select >
-                                            <option>   </option>
-                                            <ng-container>
-                                            <option  [value]="hall">{{hall}}</option>
-                                            </ng-container>
-                                    </select>
-                            </div>
-                    </div>		
-			</div>
-			<div class="panel-footer padding-top-12 padding-top-10" align="center">
-                <button type="button" class="btn btn-danger">Cancel</button>
-				<button type="submit" class="btn btn-success">Next</button>
+                    <div class="col-md-10 form-group input-group">
+                            <select (change)="getHallByTerm($event.target.value)">
+                                    <option>   </option>
+                                    <ng-container *ngFor="let term of terms">
+                                    <option *ngIf="term?.date===date" [value]="term?.id">{{term?.time}}</option>
+                                    </ng-container>
+                            </select>
+                    </div>
             </div>
-           
-            <div class="panel-footer padding-top-12 padding-top-10" align="center">
-                    <form id="reservation" method="post" action="test.php">
-                            <section id="seats">
-                              <input id="seat-1" class="seat-select" type="checkbox" value="1" name="seat[]" />
-                              <label for="seat-1" class="seat"></label>
-                              <input id="seat-2" class="seat-select" type="checkbox" value="2" name="seat[]" />
-                              <label for="seat-2" class="seat"></label>
-                              <input id="seat-3" class="seat-select" type="checkbox" value="3" name="seat[]" />
-                              <label for="seat-3" class="seat"></label>
-                              <input id="seat-4" class="seat-select" type="checkbox" value="4" name="seat[]" />
-                              <label for="seat-4" class="seat"></label>
-                            </section>
-                            <input type="submit"/>
-                    
-                            </form>
+                  <div class="row padding-top-10 ">
+                    <div class="col-md-2">
+                        <label for="hall" class="control-label">Hall:</label>
+                    </div>
+                    <div class="col-md-10 form-group input-group">
+                            <select >
+                                    <option>   </option>
+                                    <ng-container>
+                                    <option  [value]="hall">{{hall}}</option>
+                                    </ng-container>
+                            </select>
+                    </div>
+            </div>
+            <div class="row padding-top-10 ">
+                        <div class="col-md-2">
+                                <label for="price" class="control-label">Price:</label>
                         </div>
-		</div>
-	
- </div>
+                        <div class="col-md-10  input-group">
+    <select >
+        <option>       </option>
+        <ng-container *ngFor="let term of terms">
+                        <option *ngIf="term?.date===date" [value]="term?.price">{{term?.price}}</option>
+                        </ng-container>
+
+      </select>
+                        </div>
+                </div>		
+                </div>
+                <div class="panel-footer padding-top-12 padding-top-10" align="center">
+        <button type="button" class="btn btn-danger">Cancel</button>
+                        <button type="submit" (click)="getParams(cinema?.name,projection?.name)"  class="btn btn-success">Next</button>
+    </div>
+   
+    
+</div>
+
+</div>
+<div class="container padding-top-10"> <!--da se smanji cela forma dodati ovde col-md-6" -->
+
+<div class="panel panel-default">
+        <div class="panel-heading" align="center">Choose your seats</div>
+        <div class="panel-footer padding-top-12 padding-top-10" align="center">
+                <form id="reservation">
+                        <section id="seats">
+                        <ng-container *ngFor="let r of hallrow;let i = index">
+                         <div class="row"> 
+                                <ng-container *ngFor="let column of hallcolumn;let j= index">
+                                 <input id="seat-row-{{i+1}}-column-{{j+1}}" class="seat-select" type="checkbox" value="seat-row-{{i+1}}-column-{{j+1}}" name="seat[]" />
+                                 <label for="seat-row-{{i+1}}-column-{{j+1}}" class="seat"></label>
+                                </ng-container>
+                        </div>
+                        </ng-container>
+                        </section>
+                        <button type="submit" class="btn btn-success">Next</button>
+                
+                        </form>
+                    </div>
+                </div>
+</div>
+
