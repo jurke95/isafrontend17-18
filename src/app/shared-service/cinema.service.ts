@@ -6,6 +6,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {Cinema} from '../cinema';
 import {Theatre} from '../theatre';
+import {Ticket} from '../ticket';
 
 import {HttpClient,HttpHeaders}from '@angular/common/http';
 
@@ -20,6 +21,7 @@ export class CinemaService {
  private baseUrl:string='http://localhost:8084/cinemas';
  private cinema:Cinema;
  private theatre:Theatre;
+ private ticket:Ticket;
  
 
  
@@ -91,7 +93,25 @@ addTheatre(t:any){
   
   }
 
+  reserveTicketForCinema(cname:any,projection:any,cprice:any,umail:any,rtime:any,rdate:any,seatrow:any,seatcolumn:any){
 
+    this._http.post('http://localhost:8084/cinemas/reserveTicketCinema',
+      {cinemaname:cname,
+      projectionname:projection,
+      ticketprice:cprice,
+      usermail:umail,
+      reservationtime:rtime,
+      reservationdate:rdate,
+      cinemarow:seatrow,
+      cinemacolumn:seatcolumn
+    
+     })
+      .subscribe(
+      (data:any)=>{ }
+      )
+    
+    
+    }
 
   getRepertoar(id:any): Observable<any>{
 

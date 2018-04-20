@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { CinemaService } from '../../../shared-service/cinema.service';
-
+import {Ticket} from '../../../ticket';
+import {UserService} from'../../../shared-service/user.service';
+import {User} from '../../../user';
 
 @Component({
   selector: 'app-cinema-reservation',
@@ -21,14 +23,27 @@ export class CinemaReservationComponent implements OnInit {
   public seats:any;
   public hallcolumn:any;
   public hallrow:any;
+  public hallcolumn2:any;
+  public hallrow2:any;
+  public price:any;
+  public activeUser:User;
+  
+  public rowcol:string="";
+
+  public ticket:Ticket;
+
+  public cinemaReservationName:any;
+  public projectionReservationName:any;
+
   
   public x:number=0;
 
-  constructor(private _cinemaService:CinemaService) { }
+  constructor(private _cinemaService:CinemaService,private _userService:UserService) { }
 
   ngOnInit() {
 
-    this._cinemaService.getCinemas().subscribe((data)=>this.cinemas=data.cin) 
+    this._cinemaService.getCinemas().subscribe((data)=>this.cinemas=data.cin);
+    this._userService.getActiveUser().subscribe((data)=>this.activeUser=data);
 
    
 
@@ -44,12 +59,14 @@ export class CinemaReservationComponent implements OnInit {
  cinemaNameForm(valuee){
   console.log(valuee);
   this.projectionName = valuee;
+  this.cinemaReservationName=valuee;
 
   this._cinemaService.getProjectionByCinemaName(valuee).subscribe((data)=>this.projections=data);
 }
 
 getTermsByCinemaAndProjectionName(valuee){
 
+  this.projectionReservationName=valuee;
   this._cinemaService.getTermsByCinemaAndProjectionName(this.projectionName,valuee).subscribe((data)=>{this.terms=data;
   });
  
@@ -57,31 +74,52 @@ getTermsByCinemaAndProjectionName(valuee){
 
 getDateByTerm(valuee){
   this.date=valuee;
+ 
 }
 
 getHallByTerm(valuee){
  
-  this._cinemaService.getHallByTermId(valuee).subscribe((data)=>{this.hall=data.name;
-    this.hallcolumn = Array(data.columns).fill(0);
-    this.hallrow = Array(data.rows).fill(0);
-  /*  console.log(data);
-    this.seats=data.seats;
-    for (var i=1; i<data.seats.length; i++) 
-    {
-
-      if(this.seats[i-1].row==1){
-        this.hallColumn=this.hallColumn+1;
-       
-      }else{
-        this.hallrow=this.hallrow+1;
-      }
+  console.log(this.terms);
+  for (var i = 0; i <= this.terms.length-1; i++){
+    if(this.terms[i].date==this.date) {
+      this.time=this.terms[i].time;
+      console.log(this.terms[i].time);
     }
-    console.log("this.hallRow");
-    console.log(this.hallColumn);
-*/
+    
+   }
+  this._cinemaService.getHallByTermId(valuee).subscribe((data)=>{this.hall=data.name;
+    console.log(data);
+    this.hallcolumn2 = Array(data.columns).fill(0);
+    this.hallrow2 = Array(data.rows).fill(0);
+    console.log("bioskop:"+this.cinemaReservationName+" projekcija:"+this.projectionReservationName+" Date:"+this.date+" Time:"+this.time);
   
+  
+    console.log("bioskop:"+this.cinemaReservationName+" projekcija:"+this.projectionReservationName+" Date:"+this.date+" Time:"+this.time);
+ 
   });
   
 }
+
+getSeatsByHall(valuee){
+  this.hallcolumn= this.hallcolumn2;
+  this.hallrow=this.hallrow2;
+  
+}
+
+setPrice(valuee){
+  this.price=valuee;
+}
+
+sendReservation(){
+  this._cinemaService.reserveTicketForCinema(this.cinemaReservationName,this.projectionReservationName,this.price,this.activeUser.email,this.time,this.date,this.rowcol,this.rowcol);
+}
+
+setSeats(valuee){
+  this.rowcol=this.rowcol+valuee;
+}
+ getSeats(){
+
+
+ }
 
 }
