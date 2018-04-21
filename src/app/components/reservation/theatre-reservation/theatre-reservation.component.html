@@ -1,3 +1,108 @@
-<p>
-  theatre-reservation works!
-</p>
+<div class="container padding-top-10"> <!--da se smanji cela forma dodati ovde col-md-6" -->
+
+  <div class="panel panel-default">
+          <div class="panel-heading" align="center">RESERVATION</div>
+                  <div class="panel-body">
+      <div class="row padding-top-10 ">
+                                  <div class="col-md-2">
+                                          <label for="projection" class="control-label">Name:</label>
+                                  </div>
+                                  <div class="col-md-10  input-group">
+              <select (change)="theatreNameForm($event.target.value)">
+                  <option>       </option>
+                  <option *ngFor="let theatre of theatres"  [value]="theatre?.name">{{theatre?.name}}</option>
+          
+                </select>
+                                  </div>
+                          </div>
+                          <div class="row padding-top-10 ">
+                                  <div class="col-md-2">
+                                          <label for="projection" class="control-label">Projection:</label>
+                                  </div>
+                                  <div class="col-md-10 form-group input-group">
+              <select (change)="getTermtsByTheatreAndProjectionName($event.target.value)">
+                      <option>   </option>
+                      <option *ngFor="let projection of projections"  [value]="projection?.name">{{projection?.name}}</option>
+                </select>
+                                  </div>
+                          </div>
+                          <div class="row padding-top-10">
+                                  <div class="col-md-2">
+                                          <label for="date" class="control-label">Date:</label>
+                                  </div>
+                                  <div class="col-md-10 form-group input-group">
+                  <select  (change)="getDateByTermt($event.target.value)">
+                          <option>   </option>
+                          <option *ngFor="let termt of termts" [value]="termt?.date">{{termt?.date}}</option>
+                  </select>
+                                  </div>
+                          </div>
+                          <div class="row padding-top-10 ">
+              <div class="col-md-2">
+                  <label for="termt" class="control-label">Time:</label>
+              </div>
+              <div class="col-md-10 form-group input-group">
+                      <select (change)="getHallByTermt($event.target.value)">
+                              <option>   </option>
+                              <ng-container *ngFor="let termt of termts">
+                              <option *ngIf="termt?.date===date" [value]="termt?.id">{{termt?.time}}</option>
+                              </ng-container>
+                      </select>
+              </div>
+      </div>
+            <div class="row padding-top-10 ">
+              <div class="col-md-2">
+                  <label for="hall" class="control-label">Hall:</label>
+              </div>
+              <div class="col-md-10 form-group input-group">
+                      <select (change)="getSeatsByHall($event.target.value)" >
+                              <option>   </option>
+                              <ng-container>
+                              <option  [value]="hall">{{hall}}</option>
+                              </ng-container>
+                      </select>
+              </div>
+      </div>
+      <div class="row padding-top-10 ">
+                  <div class="col-md-2">
+                          <label for="price" class="control-label">Price:</label>
+                  </div>
+                  <div class="col-md-10  input-group">
+<select  (change)="setPrice($event.target.value)" >
+  <option>       </option>
+  <ng-container *ngFor="let termt of termts">
+                  <option *ngIf="termt?.date===date" [value]="termt?.price">{{termt.price}}</option>
+                  </ng-container>
+
+</select>
+                  </div>
+          </div>		
+          </div>
+          <div class="panel-footer padding-top-12 padding-top-10" align="center">
+  <button type="button"  [routerLink]="['userAccount']"  class="btn btn-danger">Cancel</button>
+                  <button type="submit" (click)="sendReservation()"  class="btn btn-success">Next</button>
+</div>
+
+
+</div>
+
+</div>
+<div class="container padding-top-10"> <!--da se smanji cela forma dodati ovde col-md-6" -->
+
+<div class="panel panel-default">
+  <div class="panel-heading" align="center">Choose your seats</div>
+  <div class="panel-footer padding-top-12 padding-top-10" align="center">
+                  <section  (change)="setSeats($event.target.value)" id="seats">
+                  <ng-container *ngFor="let r of hallrow;let i = index">
+                   <div class="row"> 
+                          <ng-container *ngFor="let column of hallcolumn;let j= index">
+                           <input id="seat-row-{{i+1}}-column-{{j+1}}" class="seat-select" type="checkbox" value="|row-{{i+1}}:col-{{j+1}}|," name="seat[]" />
+                           <label for="seat-row-{{i+1}}-column-{{j+1}}" class="seat"></label>
+                          </ng-container>
+                  </div>
+                  </ng-container>
+                  </section>
+              </div>
+          </div>
+</div>
+

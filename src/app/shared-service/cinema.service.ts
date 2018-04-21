@@ -7,6 +7,7 @@ import 'rxjs/add/observable/throw';
 import {Cinema} from '../cinema';
 import {Theatre} from '../theatre';
 import {Ticket} from '../ticket';
+import {Tickett} from '../tickett';
 
 import {HttpClient,HttpHeaders}from '@angular/common/http';
 
@@ -22,6 +23,7 @@ export class CinemaService {
  private cinema:Cinema;
  private theatre:Theatre;
  private ticket:Ticket;
+ private tickett:Tickett;
  
 
  
@@ -113,6 +115,26 @@ addTheatre(t:any){
     
     }
 
+    reserveTicketForTheatre(tname:any,projection:any,cprice:any,umail:any,rtime:any,rdate:any,seatrow:any,seatcolumn:any){
+
+      this._http.post('http://localhost:8084/theatres/reserveTicketTheatre',
+        {theatrename:tname,
+        projectionname:projection,
+        ticketprice:cprice,
+        usermail:umail,
+        reservationtime:rtime,
+        reservationdate:rdate,
+        theatrerow:seatrow,
+        theatrecolumn:seatcolumn
+      
+       })
+        .subscribe(
+        (data:any)=>{ }
+        )
+      
+      
+      }
+
   getRepertoar(id:any): Observable<any>{
 
     return this._http.get('http://localhost:8084/cinemas/repertoar/'+id);
@@ -133,7 +155,7 @@ addTheatre(t:any){
 
    getProjectionByTheatreName(name:any): Observable<any>{
 
-    return this._http.get('http://localhost:8084/cinemas/getProjectionByTheatre/'+name);
+    return this._http.get('http://localhost:8084/theatres/getProjectionByTheatre/'+name);
     
    }
 
@@ -143,9 +165,23 @@ addTheatre(t:any){
     
    }
 
+   getTermtsByTheatreAndProjectionName(theatreName:any,projectionName:any): Observable<any>{
+
+    return this._http.get('http://localhost:8084/theatres/getDateByTheatreProjection/'+theatreName+'?projectionName='+projectionName);
+    
+   }
+
    getHallByTermId(id:any): Observable<any>{
 
     return this._http.get('http://localhost:8084/cinemas/getHallByTerm/'+id);
+    
+   }
+
+
+
+   getHallByTermtId(id:any): Observable<any>{
+
+    return this._http.get('http://localhost:8084/theatres/getHallByTerm/'+id);
     
    }
 
