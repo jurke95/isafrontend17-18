@@ -78,6 +78,7 @@ import { CinemaRepertoar } from './components/repertoar/cinemaRepertoar/cinemaRe
 import { TheatreRepertoarComponent } from './components/repertoar/theatre-repertoar/theatre-repertoar/theatre-repertoar.component';
 import { CinemaReservationComponent } from './components/reservation/cinema-reservation/cinema-reservation.component';
 import { TheatreReservationComponent } from './components/reservation/theatre-reservation/theatre-reservation.component';
+import { FriendsService } from './shared-service/friends.service';
 
 
 
@@ -187,7 +188,7 @@ enableProdMode();
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [CinemaService,UserService,ProductService,AdService,OfferService,HttpModule,DatePipe],
+  providers: [FriendsService,CinemaService,UserService,ProductService,AdService,OfferService,HttpModule,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {

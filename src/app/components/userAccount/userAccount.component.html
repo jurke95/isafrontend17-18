@@ -34,6 +34,7 @@
                 </tbody>
               </table>
         </div>
+        
         <div class="col-md-3">
             <table class="table table-striped">
                 <thead>
@@ -50,4 +51,38 @@
               </table>
         </div>
     </div>
+<div class="row">
+    <div class="col-md-3" style="margin-top:80px;">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Friends</th> 
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let re of friendss"> <!-- *ngFor="let reservation of reservations" -->
+                <td><i> {{re.name}}   {{re.surname}} </i></td> 
+              </tr>
+              <tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="col-md-5" style="margin-top:80px;">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Add Friends</th> 
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let re of friendships"> <!-- *ngFor="let reservation of reservations" -->
+                <td><i>{{re?.firstfriend.name}} {{re?.firstfriend.surname}} </i><button type="button" class="btn btn-success"(click)="acceptFriend(re.id)">Accept</button>
+                    <button type="button" class="btn btn-warning" (click)="declineFriend(re.id)">Decline</button>
+                    <hr></td> 
+              </tr>
+              <tr>
+            </tbody>
+          </table>
+    </div>
+</div>
 </div>
